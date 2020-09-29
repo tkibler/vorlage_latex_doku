@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+		\begin{axis}[scale=1.3,legend entries={Messwerte mit Fehlerbalken,
+			$\pgfmathprintnumber{\pgfplotstableregressiona} \cdot x  
+			\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}$}, legend style={draw=none},legend style={at={(0.01,0.98)},anchor=north west},xlabel=Stromstärke $I \; \mathrm{ \lbrack mA \rbrack}$,ylabel=Spannung $U \; \mathrm{ \lbrack V \rbrack}$]
+		\addlegendimage{mark=*,blue}
+		\addlegendimage{no markers,red}
+\addplot+[error bars/.cd, y dir=both,y explicit]
+table[x=x,y=y,y error=errory] 
+{pgfplot/messdaten_mitfehler.dat};
+\addplot table[mark=none,y={create col/linear regression={y=y}}]
+{pgfplot/messdaten_mitfehler.dat};
+	\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,48 @@
+\addchap{Anhang A}
+\setcounter{chapter}{1}
+
+\section{Details zu bestimmten theoretischen Grundlagen}
+
+\section{Weitere Details, welche im Hauptteil den Lesefluss behindern}
+
+\addchap{Anhang B}
+\setcounter{chapter}{2}
+\setcounter{section}{0}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+\section{Versuchsanordnung}
+
+\section{Liste der verwendeten Messgeräte}
+
+\section{Übersicht der Messergebnisse}
+
+\section{Schaltplan und Bild der Prototypenplatine}
+
+\clearpage
+
+Diese Seite wurde eingefügt, um zu zeigen, wie sich der Inhalt der Kopfzeile automatisch füllt.
+
+\addchap{Anhang C}
+\setcounter{chapter}{3}
+\setcounter{section}{0}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+\section{Struktogramm des Programmentwurfs}
+
+\section{Wichtige Teile des Quellcodes}
+
+\addchap{Anhang D}
+\setcounter{chapter}{4}
+\setcounter{section}{0}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+\section{Einbinden von PDF-Seiten aus anderen Dokumenten}
+
+Auf den folgenden Seiten wird eine Möglichkeit gezeigt, wie aus einem anderen PDF-Dokument komplette Seiten übernommen werden können. Der Nachteil dieser Methode besteht darin, dass sämtliche Formateinstellungen (Kopfzeilen, Seitenzahlen, Ränder, etc.) auf diesen Seiten nicht angezeigt werden. Die Methode wird deshalb eher selten gewählt. Immerhin sorgt das Package \textit{\glqq pdfpages\grqq}~für eine korrekte Seitenzahleinstellung auf den im Anschluss folgenden \glqq nativen\grqq~\LaTeX-Seiten.
+
+Eine bessere Alternative ist, einzelne Seiten mit \textit{\glqq$\backslash$includegraphics\grqq}~einzubinden. Z.B. wenn Inhalte von Datenblättern wiedergegeben werden sollen.
+
+\includepdf[pages={2-4}]{docs/EingebundenesPDF.pdf}

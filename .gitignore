@@ -1,0 +1,26 @@
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.fls
+*.gz
+*.nlg
+*.nlo
+*.nls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+._*
+
+# ignore pdf 
+WissBer_PA_SA_BA.pdf

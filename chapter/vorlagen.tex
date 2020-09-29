@@ -1,0 +1,458 @@
+\chapter{Vorlagen}
+\label{cha:Vorlagen}
+
+\section{Standards}
+\subsection{Listenumgebungen und Fußnoten}
+Jede wissenschaftliche Arbeit ist natürlich auf Fußnoten\footnote{das sind die kleinen zusätzlichen Hinweise am unteren Rand der Seite} angewiesen. Zudem kommt es immer wieder vor, dass man \marginpar{Bemerkung!}
+\begin{itemize}
+\item[-] Aufzählungen
+\item[+] Nummerierungen oder
+\item[*] Definitionen 
+\end{itemize}
+verwenden muss. In einer Aufzählung \footnote{also in einer \textit{enumerate}-Umgebung} würde das dann so aussehen.
+\begin{enumerate}
+\item Aufzählungen
+\item Nummerierungen oder
+\item Definitionen 
+\end{enumerate}
+
+In einer Definition \footnote{also in einer \textit{description}-Umgebung} sähe das dann wohl eher so aus:
+
+\begin{description}
+\item[Silvester] Jahresendfeier mit Feuerwerk und Alkoholgenuss
+\item[Böller] Feuerwerkszubehör ohne visuellen Reiz, dafür aber recht laut
+\end{description}
+
+\subsection{Verweise und Zitate}
+
+Bilder, Tabellen und sonstige ins Dokument eingebundene Objekte müssen im Text ausführlich beschrieben und diskutiert werden. Um eine Verbindung zwischen Text und beschriebenes Objekt herzustellen, können Referenzen hergestellt werden. Auch zu anderen Textstellen können Referenzen eingebaut werden, \zB eine Referenz auf das Kapitel \ref{cha:wortberge} auf Seite \pageref{cha:wortberge}. Dazu muss das referenzierte Objekt (hier das entsprechende Kapitel) zuvor entsprechend mit dem Befehl \textit{\bs \textcolor{blue}{label}\{Labelbezeichner\}} versehen worden sein. Bei der Angabe des Labelbezeichners bietet es sich zur besseren Übersichtlichkeit an, im Label zu benennen, um welche Referenz es sich handelt (cha: für Kapitelüberschrift, sec: für die Abschnittsüberschrift, fig: für Bildunterschriften, tab: für Tabellenüberschriften, eqn: für Gleichungen, lst: für Listings, etc.).
+
+Wesentlicher Bestandteil einer wissenschaftlichen Arbeit ist die Angabe der verarbeiteten Literaturangaben. In \cite[S. 3]{Vo.2013} sind einige Möglichkeiten zur Zitierweise von Literaturangaben aufgeführt. Sie können aber einfach die in diesem Absatz verwendete Möglichkeiten nutzen, entweder mit Angabe einer Seitenzahl, wie in Listing~\ref{lst:cite} in Zeile~\ref{lst:cite:mitSeite} oder ohne Angabe einer Seitenzahl, wie in Zeile~\ref{lst:cite:ohneSeite} dargestellt ist.
+
+%\caption{Ein Listing}
+\label{lst:cite}
+\begin{lstlisting}[caption=LaTeX-Befehle zur Angabe von Literaturangaben,label=lst:cite]
+\cite[S. 3]{Vo.2013}	% mit Angabe einer Seitenzahl (*@\label{lst:cite:mitSeite}@*)
+\cite{Vo.2013}	% einfachste und meist völlig ausreichende Methode (*@\label{lst:cite:ohneSeite}@*)
+\end{lstlisting}
+
+\subsection{Indexe und Verzeichnisse}
+Eine der großen Stärken von LaTeX ist die relativ bequeme Erstellung mehrerer Verzeichnisse. Verzeichnisse helfen, das Dokument übersichtlich zu gestalten und schnell bestimmte Stellen im Dokument wiederzufinden. Diese Vorlage erstellt neben dem Inhalts-, Abbildungs- und Tabellenverzeichnis auch ein Indexverzeichnis und ein Abkürzungsverzeichnis. Eine weitere Option ist die Erstellung eines Glossars, auf diese Funktion wird hier aber nicht weiter eingegangen.
+
+Einen Eintrag in das Abkürzungsverzeichnis lässt sich über den nachfolgenden Befehl erreichen. Das entsprechende Beispiel ist im Quelltext an dieser Stelle zu finden.
+\begin{lstlisting}
+\nomenclature{SI}{Systeme International. 1960 hat ein internationales Komitee die Standardmaßeinheiten (SI-Einheiten) aufgestellt}
+\end{lstlisting}
+
+\nomenclature{SI}{Système International. 1960 hat ein internationales Komitee die Standardmaßeinheiten (SI-Einheiten) aufgestellt} % Dieser Befehl erstellt im Abkürzungsverzeichnis einen entsprechenden Eintrag
+
+Allgemeine Abkürzungen werden vorzugsweise in der Datei \glqq \textit{abkuerzungen.tex}\grqq ~gesammelt. Es bietet sich an, auch verwendete Formelzeichen in das Abkürzungsverzeichnis zu setzen. Dabei ist zu beachten, dass Formelzeichen grundsätzlich kursiv gestellt sein müssen, d.h. dass diese im Mathematikmodus gesetzt sind. Ein Beispiel zum Formelzeichen für die Zeit $t$ \nomenclature{$t$}{Zeit} sei hier gegeben.
+
+Einen Eintrag in das Indexverzeichnis, bzw. Sachwortverzeichnis erreicht man über folgenden Befehl:\\
+\textit{\textbackslash index \textnormal{\{Indexeintrag\}}}.
+
+Als Beispiel soll hier das Wort Soziologie\index{Soziologie} einen Eintrag im Indexverzeichnis erhalten. Auch Gruppierungen sind hier möglich, z.B. kann man im Index verschiedenes Obst in einem Eintrag nennen, also z.B. den Apfel\index{Obst!Apfel} oder die Birne\index{Obst!Birne}.
+
+% --------------------------------------------------------------------------------------------------------------------------
+
+\section{Verschiedene Umgebungen}
+\label{sec:Umgebungen}
+
+\subsection{Einsatz von Gleitumgebungen}
+
+Gleitumgebungen werden für Grafiken, Bilder und Tabellen verwendet. Beim Übersetzen des Dokuments sucht Latex die optimale Position des Gleitobjekts. Die Algorithmus kann durch die Optionen [hbt]~(Abkürzung für \textbf{h}ere, \textbf{b}ottom, \textbf{t}op) beeinflusst werden. In den folgenden Abschnitten werden die unterschiedlichen Gleitumgebungen vorgestellt.
+
+\subsection{Tabellen}
+
+%Tabellen selbst werden in der Umgebung \textit{tabular} oder \textit{tabularx}gesetzt. Um die Tabelle zu einem Gleitobjekt zu machen, muss diese dann in die Umgebung \textit{table} gesetzt werden. Tabellen erhalten im Gegensatz zu Grafiken eine \glqq Überschrift\grqq, keine \glqq Unterschrift\grqq.
+%
+%\begin{table}[hbt]
+%\captionabove{Beispiel für eine Tabelle} 
+%\centering
+%\begin{tabular}{c|c|c}
+%\hline Diese & Tabelle & ist \\ 
+%\hline zentriert & und  & verwendet \\ 
+%\hline vertikale & Trennzeichen &  .\\ 
+%\hline 
+%\end{tabular}
+%
+%\end{table}
+
+Tabellen, wie z.B. die Tabelle~\ref{tab:tabbsp} werden mit dem Befehl \textit{tabular} definiert und in die Gleitumgebung \textit{table} eingebunden. Im Gegensatz zu Grafiken, in welche mit einer Bildunterschrift versehen sind, besitzen Tabellen eine Überschrift.
+
+\begin{table}[hbt]
+	\caption{Tabelle mit wenig sinnvollem Inhalt und ein paar Linien.}
+	\centering
+	\begin{tabular}{|cc|c p{0.3\linewidth}} % vertikale Linien werden mit | festgelegt, Tip: Tabellen sind ohne vertikale Linien schöner. Das c bedeutet zentriert. Die Spaltenbreite richtet sich dann nach dem Inhalt.
+		\textbf{Sp. 1 }& \textbf{Sp. 2} & \textbf{Sp. 3} &\textbf{Noch \grq ne Spalte mit fester Breite, womit ein Zeilenumbruch, oder mehrere erzeugt werden}\\
+		\hline 
+		\hline 
+		Was & auch & immer & \\ 
+		\hline 
+		Sie & schreiben & möchten. &\\ 
+		\hline 
+	\end{tabular} 
+	\label{tab:tabbsp}
+\end{table}
+
+
+
+\subsection{Einbindung von Bildern}
+
+Bilder, Grafiken und Diagramme bereichern eine wissenschaftliche Arbeit und dienen dazu, bestimmte Sachverhalte zu veranschaulichen. Meist wird in \LaTeX~ein Bild als jpg- oder pdf-Datei mit dem Befehl \textit{includegraphics} eingebunden (siehe Bild~\ref{fig:matlab}). Mit einem anderen Programm muss diese Datei also zuerst erstellt werden. Die meisten Grafikprogramme können jpg-Dateien exportieren. Das jpg-Format hat aber den Nachteil, dass sämtliche Inhalte komprimiert werden, auch Linien und in das Bild eingebettete Schriftzüge. Oft ist die Komprimierung so stark, dass Kompressionsartefakte zu erkennen sind. Das pdf-Format hat den Vorteil, dass es Grafiken vektorbasiert speichern kann. Vektorgrafiken sind bei beliebiger Vergrößerung pixelgenau und zeigen keine Unschärfen. Die Qualität einer pdf-Grafik ist natürlich nur dann gut, wenn bei der Erstellung in der gesamten Kette Daten vektorbasiert gespeichert wurden. Es hilft also nicht, eine jpg-Datei mit schlechter Qualität in eine pdf-Datei zu wandeln.
+
+Bei der Erstellung von Grafiken mit eingebetteten Schriftzügen ist darauf zu achten, dass die Schriftart und Schriftgröße der verwendeten Schriftart und -größe des umgebenden Textes entspricht. Diese Anforderung ist aber meist schwer zu erfüllen, da die meisten Grafik-Programme keine \LaTeX-Schriftarten anbieten und oft unklar ist, welche Schriftart und -größe bei der Finalisierung der Arbeit verwendet wird.
+
+Ein Bild wird in eine sogenannte Gleitumgebung \textit{figure} gesetzt. \LaTeX~entscheidet bei einer Gleitumgebung selbst, an welcher Stelle im Dokument das Bild platziert wird. Mit den optionalen Parametern \textit{hbt} lässt sich die Präferenz für die Positionierung auf der Seite angeben (\textit{h}ere, \textit{b}ottom \textit{t}op).
+
+Bild~\ref{fig:matlab} zeigt ein Beispiel für eine nicht optimal gestaltete Grafik: Durch die starke Komprimierung werden Artefakte sichtbar, die Schriftgröße ist zu klein und kann nicht genau entziffert werden. Das Bild ist über einen Screenshot einer Matlab-Grafik erstellt worden.
+
+
+Eine Lösung dieses Problems ist die Erstellung von Grafiken und Diagrammen mit speziellen Programmen, die wie \LaTeX, nicht nach dem WYSIWYG-Prinzip\footnote{What you see is what you get.} arbeiten. Der Vorteil dieses Vorgehens ist, dass erst bei der Erstellung des \LaTeX-Dokuments die Schrift in die Grafik entsprechend der Dokumentvorgaben für Schriftart und -größe eingebettet wird.
+
+In den folgenden Abschnitten werden Beispiele für Diagramme und Grafiken gegeben, die wie in \LaTeX~mit entsprechenden Kommandos programmiert werden.
+
+\subsection{Erstellen von Diagrammen}
+
+Wenn Sie Funktionen oder Messwerte darstellen möchten, empfehle ich Ihnen die Verwendung des \LaTeX-Packages \textit{pgfplot}. Auch hier wird das Diagramm in die Gleitumgebung \textit{figure} eingebettet. Das Diagramm selbst wird in einer separaten .tex-Datei programmiert und mit dem Befehl \textit{input} in das Hauptdokument geladen. \textit{pgfplot} benutzt zur Darstellung der grafischen Elemente die Umgebung \textit{tikzpicture}. Ein Beispiel ist in Bild~\ref{fig:pgfplot} zu sehen.
+
+\begin{figure}[hbt]
+	\centering
+	\input{pgfplot/mess_fehlerbalken.tex}
+	\caption[Diagramm, mit dem \textit{pgfplot}-Befehlssatz]{Ein Diagramm, erstellt in der \textit{tikzpicture}-Umgebung mit dem \textit{pgfplot}-Befehlssatz. Das Diagramm stellt Messdaten, deren Fehlerbalken und eine Regressionskurve dar. Die Messdaten werden von einer separaten Datei eingelesen und die Regressionskurve wurde mit \textit{pgfplot} berechnet und erstellt.}
+	\label{fig:pgfplot}
+\end{figure}
+
+Im Internet finden Sie eine Vielzahl an weiteren Beispielen. \textit{pgfplot} bietet nahezu jeden denkbaren Diagrammtyp an, auch spezielle Diagramme, wie z.B. ein Smith-Diagramm (siehe Abbildung~\ref{fig:smith}), was in der Hochfrequenztechnik oft verwendet wird und mit Programmen wie EXCEL nicht erstellt werden kann.
+
+\begin{figure}[hbt]
+	\centering
+	\begin{tikzpicture}
+	\begin{smithchart}[
+	show origin,
+	width=6cm,
+	]
+	\addplot[mark=none,line width=2]
+	coordinates{
+		(1, 0) (1, 0.1) (1,0.2) (1,0.3) (1,0.4) (1,0.5) (1,0.5)
+	};
+	\addplot[mark=none,line width=0.5]
+	coordinates{
+		(1, 0) (-0.3, 0)  % this one is not drawn outside!!!
+	};
+	\end{smithchart}
+	\end{tikzpicture}
+\caption[Smith-Diagramm]{Smith-Diagramm}
+\label{fig:smith}
+\end{figure}
+
+Ein weiteres Beispiel eines Diagramms ist in Bild~\ref{fig:historamm} dargestellt. Neben der Darstellung eines Histogramms von Messdaten ist eine Gaussfunktion als Näherung angegeben. Eine Erarbeitung eines entsprechenden Diagramms mit EXCEL ist nicht weniger aufwändig und die hier beschriebene Vorgehensweise hat den Vorteil, dass sämtliche Parameter (Achsenbeschriftung, Legende, Farben, Symbole, Beschriftungen) direkt im \LaTeX-Editor vorgenommen werden können.
+
+\begin{figure}[hbt]
+	\centering
+	\input{pgfplot/mess5s_histogramm.tex}
+	\caption[Histogramm der Häufigkeitsverteilung für eine Zeitmessung]{Histogramm der Häufigkeitsverteilung für die Zeitmessung. Der grau markierte Bereich gibt das Vertrauensintervall für $1 \cdot \sigma $ an.}
+	\label{fig:historamm}
+\end{figure}
+
+Sollte \textit{pgfplot} trotzdem zu aufwändig erscheinen, so sei das Programm Origin als weitere Empfehlung gegeben. Origin hat einen mächtigen Funktionsumfang, bietet sich gut an, um viele Messdaten zu verwalten und kann auch EXCEL-Dateien einbinden. Das Programm Origin ist als Studentenversion für ca. 100 EUR verfügbar. Die DHBW in Friedrichshafen hat ein paar wenige Netzwerklizenzen. Wenden Sie sich gerne an Hr. Prof. Kibler, sofern Sie Interesse haben.
+
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.7\linewidth]{origin/mess_fehlerbalken_origin}
+	\caption{Diagramm erstellt mit Origin}
+	\label{fig:origin}
+\end{figure}
+
+Mit vielen anderen Programmen lassen sich Diagramme darstellen, orientieren Sie das Erscheinungsbild Ihres Diagramms an den hier gegebenen Beispielen.
+
+%\includegraphics[width=1.4in,height=1.5in,clip,keepaspectratio]{1336385206-131-kibler}}]
+
+% needed in second column of first page if using \IEEEpubid
+%\IEEEpubidadjcol
+
+\subsection{Erstellen von Grafiken}
+
+Zur Erstellung von Grafiken kann man im einfachsten Fall PowerPoint benutzen. Mit einem rechten Mausklick auf ein grafisches Element lässt sich dieses als emf-Datei exportieren (emf-Dateien speichern Grafiken vektorbasiert ab). Die emf-Datei kann dann z.B. mit XnView leicht in das pdf-Format übersetzt werden. Mit einem Mac können Sie Grafiken aus PowerPoint direkt im pdf-Format exportieren. Problematisch ist, wie oben schon beschrieben, die Auswahl einer geeigneten Schriftart in der PowerPoint-Grafik.
+
+In \LaTeX~können alternativ grafische Elemente direkt in der Kommandozeile angegeben werden. Hierfür gibt es diverse Packages, z.B. \textit{tikzpicture}. Die Einbindung einer solchen Grafik ist analog zur Vorgehensweise bei einem \textit{pgfplot}-Diagramm. Zur Erstellung einer  \textit{tikzpicture}-Grafik kann das Hilfsprogramm TikzEdt verwendet werden.
+
+\begin{figure}[hbt]
+	\centering
+	%\includegraphics[width=0.3\linewidth]{bilder/le_block_p}
+	\input{tikz/le_block_tt.tex}
+	\caption[Tikzpicture Grafik]{Tikzpicture-Grafik, erstellt mit TikZ.}
+	% Die Angabe in der eckigen Klammer würde für den Eintrag in einem Abbildungsverzeichnis verwendet werden. Manche Angaben in der Bildunterschrift sind im verzeichnis ggf. nicht erforderlich.
+	\label{fig:le_block_p}
+\end{figure}
+
+\subsection{Einsatz von Programmlistings}
+Für die Vorlage wird das paket \textit{listings} verwendet. Für die geeignete Markierung von Befehlen kann die verwendete Programmiersprache angegeben werden.
+
+\begin{lstlisting}[language=PHP]
+define('PATH_site', dirname(PATH_thisScript).'/');
+\begin{lstlisting}
+if (@is_dir(PATH_site.'typo3/sysext/cms/tslib/')) {
+define('PATH_tslib', PATH_site.'typo3/sysext/cms/tslib/');
+} elseif (@is_dir(PATH_site.'tslib/')) {
+define('PATH_tslib', PATH_site.'tslib/');
+} else {
+}
+\end{lstlisting}
+
+Das Paket \textit{listings} bietet zahlreiche Konfigurationsmöglichkeiten, um die Quellcodedarstellung an die eigenen Wünsche anzupassen. In einer fertig konfigurierten TexLive-Umgebung erfahren Sie mit dem Kommando
+
+\begin{verbatim}
+user@client:~> texdoc listings
+\end{verbatim}				% Verbatim ist eine einfache Alternative zu lstlistings und erlaubt auf einfache Weise die abgesetzte Darstellung von Code.
+
+mehr über die Möglichkeiten des Pakets.
+
+
+\subsection{Formeln}
+\label{sec:formeln}
+
+Formeln lassen sich in \LaTeX~ganz einfach schreiben, wie bereits zu Beginn der Arbeit auf Seite~\pageref{cha:Einleitung} erwähnt wurde. Es gibt unterschiedliche Umgebungen zum Schreiben von Formeln. Z.B. direkt im Text $v=s/t$ oder abgesetzt
+
+\[F=m \cdot a\]
+
+oder auch, wie in wissenschaftlichen Dokumenten üblich, nummeriert
+
+\begin{equation}
+P=\frac{U^2}{R} \quad .
+\label{eqn:leistung}
+\end{equation}
+
+Mit einem Label in Formel~\ref{eqn:leistung} lassen sich natürlich auch Formeln im Text referenzieren. \LaTeX~verwendet im Formelmodus einen eigenen Schriftsatz, welcher entsprechend der gängigen Konventionen kursive Zeichen verwendet. Sollen im Formelmodus Einheiten in normaler Schriftart eingefügt werden, dann kann dies über den Befehl \textit{\textbackslash mathrm}\{\} erwirkt werden, wie im Quellcode von Formel~\ref{eqn:leistungMitEinh} zu sehen ist.
+
+\begin{equation}
+P=\frac{U^2}{R} = \frac{\left( 100~\mathrm{V}\right)^2}{100~\Omega} = 100~\mathrm{W}\quad .
+\label{eqn:leistungMitEinh}
+\end{equation}
+
+Zum direkten Vergleich sind die Einheiten in Formel~\ref{eqn:leistungMitEinhfalsch} falsch dargestellt:
+
+\begin{equation}
+P=\frac{U^2}{R} = \frac{\left( 100~V\right)^2}{100~\Omega} = 100~W
+\label{eqn:leistungMitEinhfalsch}
+\end{equation}
+
+Das sind nur ein paar wenige Beispiele und es gibt sehr viele Packages, um Besonderheiten in Formeln realisieren zu können. Nennen Sie Formeln nur, wenn diese zum besseren Verständnis auch wirklich nützlich sind.
+
+Nachfolgend sind ein paar beliebig gewählte Beispiele zu mathematischen Ausdrücken aufgeführt:
+
+\subsubsection{Arrays}
+
+Arrays of mathematics are typeset using one of the matrix environments as 
+in
+\[
+\begin{bmatrix}
+1 & x & 0 \\
+0 & 1 & -1
+\end{bmatrix}\begin{bmatrix}
+1  \\
+y  \\
+1
+\end{bmatrix}
+=\begin{bmatrix}
+1+xy  \\
+y-1
+\end{bmatrix}.
+\]
+Case statements use cases:
+\[
+|x|=\begin{cases}
+x, & \text{if }x\geq 0\,,  \\
+-x, & \text{if }x< 0\,.
+\end{cases}
+\]
+Many arrays have lots of dots all over the place as in
+\[
+\begin{matrix}
+-2 & 1 & 0 & 0 & \cdots & 0  \\
+1 & -2 & 1 & 0 & \cdots & 0  \\
+0 & 1 & -2 & 1 & \cdots & 0  \\
+0 & 0 & 1 & -2 & \ddots & \vdots \\
+\vdots & \vdots & \vdots & \ddots & \ddots & 1  \\
+0 & 0 & 0 & \cdots & 1 & -2
+\end{matrix}
+\]
+
+\subsubsection{Delimiters}
+
+See how the delimiters are of reasonable size in these examples
+\[
+\left(a+b\right)\left[1-\frac{b}{a+b}\right]=a\,,
+\]
+\[
+\sqrt{|xy|}\leq\left|\frac{x+y}{2}\right|,
+\]
+even when there is no matching delimiter
+\[
+\int_a^bu\frac{d^2v}{dx^2}\,dx
+=\left.u\frac{dv}{dx}\right|_a^b
+-\int_a^b\frac{du}{dx}\frac{dv}{dx}\,dx.
+\]
+
+
+
+
+
+
+\subsubsection{Spacing}
+
+Differentials often need a bit of help with their spacing as in
+\[
+\iint xy^2\,dx\,dy 
+=\frac{1}{6}x^2y^3,
+\]
+whereas vector problems often lead to statements such as
+\[
+u=\frac{-y}{x^2+y^2}\,,\quad
+v=\frac{x}{x^2+y^2}\,,\quad\text{and}\quad
+w=0\,.
+\]
+Occasionally one gets horrible line breaks when using a list in mathematics such as listing the first twelve primes  \(2,3,5,7,11,13,17,19,23,29,31,37\)\,.
+In such cases, perhaps include \verb|\mathcode`\,="213B| inside the inline maths environment so that the list breaks: \(\mathcode`\,="213B 2,3,5,7,11,13,17,19,23,29,31,37\)\,.
+Be discerning about when to do this as the spacing is different.
+
+
+
+
+\subsubsection{Equation arrays}
+
+In the flow of a fluid film we may report
+\begin{eqnarray}
+u_\alpha & = & \epsilon^2 \kappa_{xxx} 
+\left( y-\frac{1}{2}y^2 \right),
+\label{equ}  \\
+v & = & \epsilon^3 \kappa_{xxx} y\,,
+\label{eqv}  \\
+p & = & \epsilon \kappa_{xx}\,.
+\label{eqp}
+\end{eqnarray}
+Alternatively, the curl of a vector field $(u,v,w)$ may be written 
+with only one equation number:
+\begin{eqnarray}
+\omega_1 & = &
+\frac{\partial w}{\partial y}-\frac{\partial v}{\partial z}\,,
+\nonumber  \\
+\omega_2 & = & 
+\frac{\partial u}{\partial z}-\frac{\partial w}{\partial x}\,,
+\label{eqcurl}  \\
+\omega_3 & = & 
+\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}\,.
+\nonumber
+\end{eqnarray}
+Whereas a derivation may look like
+\begin{eqnarray*}
+	(p\wedge q)\vee(p\wedge\neg q) & = & p\wedge(q\vee\neg q)
+	\quad\text{by distributive law}  \\
+	& = & p\wedge T \quad\text{by excluded middle}  \\
+	& = & p \quad\text{by identity}
+\end{eqnarray*}
+
+\subsubsection{Functions}
+
+Observe that trigonometric and other elementary functions are typeset 
+properly, even to the extent of providing a thin space if followed by 
+a single letter argument:
+\[
+\exp(i\theta)=\cos\theta +i\sin\theta\,,\quad
+\sinh(\log x)=\frac{1}{2}\left( x-\frac{1}{x} \right).
+\]
+With sub- and super-scripts placed properly on more complicated 
+functions,
+\[
+\lim_{q\to\infty}\|f(x)\|_q 
+=\max_{x}|f(x)|,
+\]
+and large operators, such as integrals and
+\begin{eqnarray*}
+	e^x & = & \sum_{n=0}^\infty \frac{x^n}{n!}
+	\quad\text{where }n!=\prod_{i=1}^n i\,,  \\
+	\overline{U_\alpha} & = & \bigcap_\alpha U_\alpha\,.
+\end{eqnarray*}
+In inline mathematics the scripts are correctly placed to the side in 
+order to conserve vertical space, as in
+\(
+1/(1-x)=\sum_{n=0}^\infty x^n.
+\)
+
+
+
+
+
+
+\subsubsection{Accents}
+
+Mathematical accents are performed by a short command with one 
+argument, such as
+\[
+\tilde f(\omega)=\frac{1}{2\pi}
+\int_{-\infty}^\infty f(x)e^{-i\omega x}\,dx\,,
+\]
+or
+\[
+\dot{\vec \omega}=\vec r\times\vec I\,.
+\]
+
+
+
+
+
+\subsubsection{Command definition}
+
+\newcommand{\Ai}{\operatorname{Ai}} 
+The Airy function, $\Ai(x)$, may be incorrectly defined as this 
+integral
+\[
+\Ai(x)=\int\exp(s^3+isx)\,ds\,.
+\]
+
+\newcommand{\D}[2]{\frac{\partial #2}{\partial #1}}
+\newcommand{\DD}[2]{\frac{\partial^2 #2}{\partial #1^2}}
+\renewcommand{\vec}[1]{\text{\boldmath$#1$}}
+
+This vector identity serves nicely to illustrate two of the new 
+commands:
+\[
+\vec\nabla\times\vec q
+=\vec i\left(\D yw-\D zv\right)
++\vec j\left(\D zu-\D xw\right)
++\vec k\left(\D xv-\D yu\right).
+\]
+
+
+
+
+\subsubsection{Theorems et al.}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+
+\begin{definition}[right-angled triangles] \label{def:tri}
+	A \emph{right-angled triangle} is a triangle whose sides of length~\(a\), \(b\) and~\(c\), in some permutation of order, satisfies \(a^2+b^2=c^2\).
+\end{definition}
+
+\begin{lemma} 
+	The triangle with sides of length~\(3\), \(4\) and~\(5\) is right-angled.
+\end{lemma}
+
+This lemma follows from the Definition~\ref{def:tri} as \(3^2+4^2=9+16=25=5^2\).
+
+\begin{theorem}[Pythagorean triplets] \label{thm:py}
+	Triangles with sides of length \(a=p^2-q^2\), \(b=2pq\) and \(c=p^2+q^2\) are right-angled triangles.
+\end{theorem}
+
+Prove this Theorem~\ref{thm:py} by the algebra \(a^2+b^2 =(p^2-q^2)^2+(2pq)^2
+=p^4-2p^2q^2+q^4+4p^2q^2
+=p^4+2p^2q^2+q^4
+=(p^2+q^2)^2 =c^2\).
+
+
+
+

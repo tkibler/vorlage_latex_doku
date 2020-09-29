@@ -1,0 +1,229 @@
+% Präambel
+\documentclass[%
+12pt,							% Schriftgröße
+a4paper,						% Papierformat
+oneside, 						% einseitiges (oneside) oder zweiseitiges (twoside) Dokument
+listof=totoc, 					% Tabellen- und Abbildungsverzeichnis ins Inhaltsverzeichnis
+bibliography=totoc,				% Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
+titlepage, 						% Titlepage-Umgebung statt \maketitle
+headsepline, 					% horizontale Linie unter Kolumnentitel
+%abstracton,					% Überschrift beim Abstract einschalten, Abstract muss dazu in {abstract}-Umgebung stehen
+DIV=12,							% Satzspiegeleinstellung, 12 ist Standar bei KOMA
+%BCOR=6mm,						% Bindekorrektur, die den Seitenspiegel um 6mm nach rechts verschiebt,
+cleardoublepage=empty,			% Stil einer leeren eingefügten Seite bei Kapitelwechsel
+parskip,							% Absatzabstand bei Absatzwechsel einfügen
+ngerman
+]{scrbook}			
+\usepackage{scrhack}			
+\usepackage{ucs} 				% Dokument in utf8-Codierung schreiben und speichern
+\usepackage[utf8x]{inputenc} 	% ermöglicht die direkte Eingabe von Umlauten
+\usepackage[T1]{fontenc} 		% Ausgabe aller zeichen in einer T1-Codierung (wichtig für die Ausgabe von Umlauten!)
+\usepackage{babel} 	% deutsche Trennungsregeln und Übersetzung der festcodierten Überschriften
+\setlength{\parindent}{0ex} 	% bei neuem Abschnitt nicht einrücken
+%------
+% Folgende Einstellungen entsprechen den Vorgaben der Leitlinien
+\usepackage[onehalfspacing]{setspace}
+% Ende Leitlinien
+%------
+%------
+% Folgende Einstellungen sind bei größeren Arbeiten mit viel Text zu empfehlen.
+% Hierbei oben DIV=16 einstellen und Zeile \usepackage[onehalfspacing]{setspace} auskommentieren.
+%\linespread{1.2}\selectfont     % Zeilenabstand erhöhen - größere Werte als 1.2 nicht verwenden!!
+% Ende Einstellung große Arbeiten mit viel Text.
+%------
+\usepackage{graphicx}  			% Einbinden von Grafiken erlauben
+\usepackage[format=hang,		% Formatierungen von Unter- / Überschriften
+font=normal,
+labelfont=bf,
+justification=RaggedRight,
+singlelinecheck=true,
+aboveskip=1mm
+]{caption}
+
+% Folgende Zeilen sind auszukommentieren, falls runde Klammern und ein vgl. bei Zitaten erscheinen sollen.
+%\makeatletter
+%\renewcommand{\@cite}[2]{(vgl. {#1\if@tempswa , #2\fi})} 
+%\renewcommand{\@biblabel}[1]{(#1)}
+%\makeatother
+
+\usepackage{pdfpages}
+
+\usepackage{enumitem}			% Erlaubt Änderung der Nummerierung in der Umgebung enumerate
+
+\usepackage{amsmath}			% Ergänzungen für Formeln
+\usepackage{textcomp} 			% zum Einsatz von Eurozeichen u. a. Symbolen
+\newcommand*\diff{\mathop{}\!\mathrm{d}}	% Differentialzeichen
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}} % Differentialzeichen höherer Ableitung
+\newcommand*\jj{\mathop{}\!\mathrm{j}}	% Komplexe Zahl j
+
+\usepackage[					% Einstellunge Paket hyperref
+hyperfootnotes=false			% im pfd-Output Fußnoten nicht verlinken
+]{hyperref}
+
+\usepackage{makeidx}			% Paket zur Erstellung eines Index
+\usepackage[intoc]{nomencl} 	% zur Erstellung des Abkürzungsberzeichnisses
+
+\usepackage[					% Einstellungen für Fußnoten
+bottom,							% Ausrichtung unten
+multiple,						% Trennung durch Seperator bei mehreren Fußnoten
+hang,
+marginal
+]{footmisc}
+
+\usepackage{calc}				% Paket zum Berechnen von Längen z.B. 0.8\linewidth
+
+\usepackage{xcolor} 			% einfache Verwendung von Farben in nahezu allen Farbmodellen
+
+\usepackage{listings}			% Darstellung von Quellcode mit den Umgebungen {lstlisting}, \lstinline und \lstinputlisting
+\lstset{literate=				% Damit können Umlaute innerhalb Listings geschrieben werden
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}1
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=t,                    % sets the caption-position to (b) bottom or (t) top
+	commentstyle=\color{mygreen},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	escapeinside={(*@}{@*)},
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=none,	                   	% "single" adds a frame around the code; "none"
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=[LaTeX]TeX,             % the language of the code
+	morekeywords={*,nomenclature},   % if you want to add more keywords to the set
+	numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=2,	                   % sets default tabsize to 2 spaces
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\makeindex						% Indexverzeichnis erstellen
+\makenomenclature				% Abkürzungsverzeichnis erstellen
+
+% -----------------------------------------------------------------------------------------------------------------
+% Zum Aktualisieren des Abkürzungsverzeichnisses (Nomenklatur) bitte auf der Kommandozeile folgenden Befehl aufrufen :
+% makeindex <Dateiname>.nlo -s nomencl.ist -o <Dateiname>.nls
+% Oder besser: Kann in TexStudio unter Tools-Benutzer als Shortlink angelegt werden
+% Konfiguration unter: Optionen-Erzeugen-Benutzerbefehle: makeindex -s nomencl.ist -t %.nlg -o %.nls %.nlo
+% -----------------------------------------------------------------------------------------------------------------
+
+% Hier die persönlichen Daten eingeben:
+
+\newcommand{\titel}{Titel der Praxis- / Studien- / Haus- oder Bachelor-Arbeit}
+\newcommand{\untertitel}{ggf. Untertitel mit ergänzenden Hinweisen}
+\newcommand{\arbeit}{Praxisbericht / Studienarbeit / Hausarbeit / Bachelorarbeit}
+\newcommand{\studiengang}{Elektrotechnik}
+\newcommand{\studienrichtung}{Fahrzeugelektronik}
+\newcommand{\studienschwerpunkt}{}
+\newcommand{\autor}{Autor(en)}
+\newcommand{\matrikelnr}{123 456}
+\newcommand{\kurs}{TFE19-2}
+\newcommand{\firma}{Firma (Angabe entfällt ggf. bei Studienarbeit)}
+\newcommand{\abgabe}{\today}
+\newcommand{\betreuerdhbw}{Gutachter der DHBW}
+\newcommand{\betreuerfirma}{Gutachter der Firma (Angabe entfällt ggf. bei Studienarbeit)}
+\newcommand{\jahr}{2019}			% für Angabe im Copyright-Vermerk der Titelseite
+
+% Folgende Zeilen definieren Abkürzungen, um Befehle schneller eingeben zu können
+\newcommand{\ua}{\mbox{u.\,a.\ }}
+\newcommand{\zB}{\mbox{z.\,B.\ }}
+\newcommand{\bs}{$\backslash$}
+
+% Folgende Zeilen weden benötigt, um Tikz und PGF-Plot-Grafiken einzubinden
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=newest,width=0.6\linewidth}
+\usepgfplotslibrary{smithchart}
+\usepackage{tikz}						% Tikz sollte nach Listings Pakete geladen werden.
+\usetikzlibrary{arrows}
+
+\hyphenation{Schrift-ar-ten}
+
+
+% -------------------------------------------------------------------------------------------
+%                     Beginn des Dokumenteninhalts
+% -------------------------------------------------------------------------------------------
+\begin{document}
+\setcounter{secnumdepth}{3}				% Nummerierungstiefe fürs Inhaltsverzeichnis
+\setcounter{tocdepth}{3}
+\sffamily								% für die Titelei serifenlose Schrift verwenden
+
+% ------------------------------ Titelei -----------------------------------------------------
+
+\include{pages/titelseite} 				% erzeugt die Titelseite
+\pagenumbering{roman}					% kleine, römische Seitenzahlen für Titelei
+\include{pages/erklaerung} 				% Einbinden der eidestattlichen Erklärung
+\include{chapter/abstract}   			% Einbinden des Abstracts
+
+\tableofcontents						% Erzeugen des Inhalsverzeichnisses
+\cleardoublepage
+
+% --------------------------------------------------------------------------------------------
+%                    Inhalt der Bachelorarbeit
+%---------------------------------------------------------------------------------------------
+\pagenumbering{arabic}					% arabische Seitenzahlen für den Hauptteil
+
+\rmfamily
+
+\include{chapter/einleitung}
+\include{chapter/grundlagen}
+\include{chapter/konzeptentwurf}
+\include{chapter/umsetzung}
+\include{chapter/verifikation}
+\include{chapter/zusammenfassung}
+
+% ---- Literaturverzeichnis ----------
+\interlinepenalty 10000					% Verhindert einen Umbruch mitten in Literatureinträgen
+\bibliography{literature/literatur1,literature/literatur2}
+										% Einbindung mehrerer Verzeichnisse in einem \bibliography Befehl mit Kommata trennen - keine Leerzeichen nach den Kommata!
+\bibliographystyle{alphadin}           	%plain: alphabetisch, unsrt: nach Zitat, alphadin: NameJahr
+
+
+% -----Ausgabe aller Verzeichnisse ---
+\setlength{\parskip}{0.5\baselineskip}
+\renewcommand{\indexname}{Sachwortverzeichnis}
+\printindex								% Erzeugen des Indexverzeichnises
+\addcontentsline{toc}{chapter}{\indexname}
+\input{pages/abkuerzungen}				% Datei mit allgemeinen Abkürzungen laden
+\renewcommand{\nomname}{Verzeichnis verwendeter Formelzeichen und Abkürzungen}
+\setlength{\nomlabelwidth}{.20\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+\printnomenclature						% Erzeugen des Abkürzungsverzeichnises, siehe auch Inhalt der Datei pages/abkuerzungen.tex
+\cleardoublepage
+%\renewcommand{\glossaryname}{Glossar}
+%\printglossaries
+%\cleardoublepage
+\listoffigures 							% Erzeugen des Abbildungsverzeichnisses 
+\cleardoublepage
+\listoftables 							% Erzeugen des Tabellenverzeichnisses
+\cleardoublepage
+
+% -----Anhang ------------------------
+
+\appendix
+\clearpage
+%\pagenumbering{Roman}					% große, römische Seitenzahlen für Anhang, falls gewünscht
+\include{chapter/anhang}
+\include{chapter/anhang_vorlagen}		% Zeile auskommentieren bei finalem Dokument!
+
+\end{document}

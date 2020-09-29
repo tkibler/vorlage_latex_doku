@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\begin{circuitikz}[scale=1.5]
+\draw			% Beginn des draw-Befehls zum zeichnen einer Masche
+(0,0) 			% Festlegung des Startpunkts
+to[short, o-] (0,0)	% Start links unten mit dem Eingang der Schaltung
+to[L=L] (4,0)			% Induktivität
+to[C=C] (4,2)		% Kapazität
+to[R=R,i<=$I(t)$] (0,2)	% Widerstand
+to[short, -o] (0,2)	% Ende links oben mit dem Eingang der Schaltung
+;				% Ende des draw-Befehls
+% Ausgang der Schaltung
+\draw (4,0) to [short, -o](4.7,0);
+\draw (4,2) to [short, -o](4.7,02);
+% Eingangs- und Ausgangsspannung
+\draw [-triangle 45] (0,1.8) -- (0,0.2)  node[midway, right] {$U_e(t)$};
+\draw [-triangle 45] (4.7,1.8) -- (4.7,0.2)  node[midway,right] {$U_a(t)$};
+\end{circuitikz}
+\end{tikzpicture}

@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+%
+\begin{axis}[
+scale=1.3,
+ytick pos=left,
+xlabel=Zeit $t \; \mathrm{ \lbrack ns \rbrack}$,
+ylabel=Spannung $U \; \mathrm{ \lbrack V \rbrack}$
+]
+\addplot[mark=*,only marks] table[x=x,y=y1] {pgfplot/messdaten_zweiyachsen.dat};
+\end{axis}
+%
+\begin{axis}[
+scale = 1.3,
+legend style={draw=none},
+legend style={at={(0.75,0.6)},
+anchor=north west},
+axis y line*=right,
+axis x line=none,
+%ymin=0,
+%ymax=100,
+ylabel=Strom $I \; \mathrm{ \lbrack mA \rbrack}$
+]
+\addlegendimage{mark=*,only marks}
+\addlegendentry{Spannung}
+\addplot[mark=x,only marks,blue] table[x=x,y=y2] {pgfplot/messdaten_zweiyachsen.dat};
+\addlegendentry{Strom}
+\end{axis}
+\end{tikzpicture}

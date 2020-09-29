@@ -1,0 +1,18 @@
+\usetikzlibrary{circuits.logic.US,circuits.logic.IEC}
+      \begin{tikzpicture}[circuit logic US]
+      \matrix[column sep=7mm]
+      {
+      \node (i0) {0}; & & \\
+      & \node [and gate] (a1) {}; & \\
+      \node (i1) {0}; & & \node [or gate] (o) {};\\
+      & \node [nand gate] (a2) {}; & \\
+      \node (i2) {1}; & & \\
+      };
+      \draw (i0.east) -- ++(right:3mm) |- (a1.input 1);
+      \draw (i1.east) -- ++(right:3mm) |- (a1.input 2);
+      \draw (i1.east) -- ++(right:3mm) |- (a2.input 1);
+      \draw (i2.east) -- ++(right:3mm) |- (a2.input 2);
+      \draw (a1.output) -- ++(right:3mm) |- (o.input 1);
+      \draw (a2.output) -- ++(right:3mm) |- (o.input 2);
+      \draw (o.output) -- ++(right:3mm) node [right] {$y$ \quad Hier könnte Ihre Formel $y=(0 \land 0) \lor \overline{( 0 \land 1)}$ stehen};
+ \end{tikzpicture}
