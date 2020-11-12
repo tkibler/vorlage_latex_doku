@@ -59,7 +59,7 @@ hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 
 \usepackage{amsmath}			% Ergänzungen für Formeln
 \usepackage{textcomp} 			% zum Einsatz von Eurozeichen u. a. Symbolen
-%\usepackage{eurosans}			% alternative Darstellung Euro-Symbol mit \euro
+\usepackage{eurosym}			% bessere Darstellung Euro-Symbol mit \euro
 \newcommand*\diff{\mathop{}\!\mathrm{d}}	% Differentialzeichen
 \newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}} % Differentialzeichen höherer Ableitung
 \newcommand*\jj{\mathop{}\!\mathrm{j}}	% Komplexe Zahl j
@@ -171,6 +171,7 @@ marginal
 %                     Beginn des Dokumenteninhalts
 % -------------------------------------------------------------------------------------------
 \begin{document}
+\let\texteuro\euro						% Eingabe \texteuro, € oder \euro erzeugt gleiches Ergebnis
 \setcounter{secnumdepth}{3}				% Nummerierungstiefe fürs Inhaltsverzeichnis
 \setcounter{tocdepth}{3}
 \sffamily								% für die Titelei serifenlose Schrift verwenden
