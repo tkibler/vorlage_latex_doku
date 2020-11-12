@@ -15,8 +15,7 @@ parskip,							% Absatzabstand bei Absatzwechsel einfügen
 ngerman
 ]{scrbook}			
 \usepackage{scrhack}			
-\usepackage{ucs} 				% Dokument in utf8-Codierung schreiben und speichern
-\usepackage[utf8x]{inputenc} 	% ermöglicht die direkte Eingabe von Umlauten
+\usepackage[utf8]{inputenc} 	% ermöglicht die direkte Eingabe von Umlauten
 \usepackage[T1]{fontenc} 		% Ausgabe aller zeichen in einer T1-Codierung (wichtig für die Ausgabe von Umlauten!)
 \usepackage{babel} 	% deutsche Trennungsregeln und Übersetzung der festcodierten Überschriften
 \setlength{\parindent}{0ex} 	% bei neuem Abschnitt nicht einrücken
@@ -40,6 +39,14 @@ singlelinecheck=true,
 aboveskip=1mm
 ]{caption}
 
+\usepackage[backend=biber, %% Hilfsprogramm "biber" beim Compilieren nutzen (statt "biblatex" oder "bibtex")
+style=alphabetic, %% Zitierstil (siehe Dokumentation)
+natbib=true, %% Bereitstellen von natbib-kompatiblen Zitierkommandos
+hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
+]{biblatex}
+\addbibresource{literature/literatur1.bib} %% Einbinden der bib-Datei. Endung .bib unbedingt ergänzen
+\addbibresource{literature/literatur2.bib} %% Einbinden mehrerer bib-Dateien mit zusätzlichem \addbibresource - Befehl
+
 % Folgende Zeilen sind auszukommentieren, falls runde Klammern und ein vgl. bei Zitaten erscheinen sollen.
 %\makeatletter
 %\renewcommand{\@cite}[2]{(vgl. {#1\if@tempswa , #2\fi})} 
@@ -52,6 +59,7 @@ aboveskip=1mm
 
 \usepackage{amsmath}			% Ergänzungen für Formeln
 \usepackage{textcomp} 			% zum Einsatz von Eurozeichen u. a. Symbolen
+%\usepackage{eurosans}			% alternative Darstellung Euro-Symbol mit \euro
 \newcommand*\diff{\mathop{}\!\mathrm{d}}	% Differentialzeichen
 \newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}} % Differentialzeichen höherer Ableitung
 \newcommand*\jj{\mathop{}\!\mathrm{j}}	% Komplexe Zahl j
@@ -193,10 +201,7 @@ marginal
 
 % ---- Literaturverzeichnis ----------
 \interlinepenalty 10000					% Verhindert einen Umbruch mitten in Literatureinträgen
-\bibliography{literature/literatur1,literature/literatur2}
-										% Einbindung mehrerer Verzeichnisse in einem \bibliography Befehl mit Kommata trennen - keine Leerzeichen nach den Kommata!
-\bibliographystyle{alphadin}           	%plain: alphabetisch, unsrt: nach Zitat, alphadin: NameJahr
-
+\printbibliography						% Erstellen des Literaturverzeichnisses
 
 % -----Ausgabe aller Verzeichnisse ---
 \setlength{\parskip}{0.5\baselineskip}
