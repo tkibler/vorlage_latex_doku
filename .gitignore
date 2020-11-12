@@ -1,6 +1,8 @@
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.bbl
+*.bcf
+*.run.xml
 *.blg
 *.idx
 *.ilg
