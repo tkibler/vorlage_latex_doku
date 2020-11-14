@@ -1,4 +1,4 @@
-# vorlage_latex_doku
+# Anmerkungen zur LaTeX-Vorlage
 Vorlage für Student*innen der DHBW Ravensburg, Campus Friedrichshafen, zur Anfertigung von Praxisberichten, Hausarbeiten, Studienarbeiten und Bachelorarbeiten.
 
 Benutzen Sie für diese Vorlage zur Erstellung des Literaturverzeichnisses Biber anstatt BibTeX.
