@@ -30,6 +30,15 @@ ngerman
 %\linespread{1.2}\selectfont     % Zeilenabstand erhöhen - größere Werte als 1.2 nicht verwenden!!
 % Ende Einstellung große Arbeiten mit viel Text.
 %------
+
+\usepackage{siunitx}			% Vereinfachte Eingabe von Einheiten in Formeln
+\sisetup{
+	number-unit-product = \;,
+	inter-unit-product = \:,
+	exponent-product = \cdot,
+	output-decimal-marker = {,}
+}
+
 \usepackage{graphicx}  			% Einbinden von Grafiken erlauben
 \usepackage[format=hang,		% Formatierungen von Unter- / Überschriften
 font=normal,
