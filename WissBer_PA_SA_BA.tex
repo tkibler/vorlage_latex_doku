@@ -53,6 +53,8 @@ style=alphabetic, %% Zitierstil (siehe Dokumentation)
 natbib=true, %% Bereitstellen von natbib-kompatiblen Zitierkommandos
 hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 ]{biblatex}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 \addbibresource{literature/literatur1.bib} %% Einbinden der bib-Datei. Endung .bib unbedingt ergänzen
 \addbibresource{literature/literatur2.bib} %% Einbinden mehrerer bib-Dateien mit zusätzlichem \addbibresource - Befehl
 
@@ -75,7 +77,7 @@ hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 
 \usepackage[					% Einstellunge Paket hyperref
 hyperfootnotes=false,			% im pfd-Output Fußnoten nicht verlinken
-hidelinks
+hidelinks						% Entfernen von farbigen Umrandungen der Links
 ]{hyperref}
 
 \usepackage{makeidx}			% Paket zur Erstellung eines Index
