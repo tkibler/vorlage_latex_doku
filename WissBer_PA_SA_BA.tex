@@ -73,9 +73,6 @@ hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 \usepackage{amsmath}			% Ergänzungen für Formeln
 \usepackage{textcomp} 			% zum Einsatz von Eurozeichen u. a. Symbolen
 \usepackage{eurosym}			% bessere Darstellung Euro-Symbol mit \euro
-\newcommand*\diff{\mathop{}\!\mathrm{d}}	% Differentialzeichen
-\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}} % Differentialzeichen höherer Ableitung
-\newcommand*\jj{\mathop{}\!\mathrm{j}}	% Komplexe Zahl j
 
 \usepackage[					% Einstellunge Paket hyperref
 hyperfootnotes=false,			% im pfd-Output Fußnoten nicht verlinken
@@ -169,6 +166,9 @@ marginal
 \newcommand{\ua}{\mbox{u.\,a.\ }}
 \newcommand{\zB}{\mbox{z.\,B.\ }}
 \newcommand{\bs}{$\backslash$}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}	% Differentialzeichen
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}} % Differentialzeichen höherer Ableitung
+\newcommand*\jj{\mathop{}\!\mathrm{j}}	% Komplexe Zahl j
 
 % Folgende Zeilen weden benötigt, um Tikz und PGF-Plot-Grafiken einzubinden
 \usepackage{pgfplots}
