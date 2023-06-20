@@ -1,8 +1,8 @@
 % Präambel
 \documentclass[%
-12pt,							% Schriftgröße
-a4paper,						% Papierformat
-oneside, 						% einseitiges (oneside) oder zweiseitiges (twoside) Dokument
+fontsize=12pt,					% Schriftgröße
+paper=a4,						% Papierformat
+twoside=false, 					% einseitiges (oneside) oder zweiseitiges (twoside) Dokument
 listof=totoc, 					% Tabellen- und Abbildungsverzeichnis ins Inhaltsverzeichnis
 bibliography=totoc,				% Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
 titlepage, 						% Titlepage-Umgebung statt \maketitle
@@ -14,7 +14,7 @@ cleardoublepage=empty,			% Stil einer leeren eingefügten Seite bei Kapitelwechs
 parskip,							% Absatzabstand bei Absatzwechsel einfügen
 ngerman
 ]{scrbook}			
-\usepackage{scrhack}
+\usepackage[setspace=false]{scrhack}
 \usepackage[utf8]{inputenc} 	% ermöglicht die direkte Eingabe von Umlauten
 \usepackage[T1]{fontenc} 		% Ausgabe aller zeichen in einer T1-Codierung (wichtig für die Ausgabe von Umlauten!)
 \usepackage{babel} 	% deutsche Trennungsregeln und Übersetzung der festcodierten Überschriften
@@ -57,6 +57,8 @@ hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 \setcounter{biburlucpenalty}{8000}
 \addbibresource{literature/literatur1.bib} %% Einbinden der bib-Datei. Endung .bib unbedingt ergänzen
 \addbibresource{literature/literatur2.bib} %% Einbinden mehrerer bib-Dateien mit zusätzlichem \addbibresource - Befehl
+
+\usepackage{csquotes}
 
 % Folgende Zeilen sind auszukommentieren, falls runde Klammern und ein vgl. bei Zitaten erscheinen sollen.
 %\makeatletter
