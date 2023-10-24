@@ -2,14 +2,14 @@
 \documentclass[%
 fontsize=12pt,					% Schriftgröße
 paper=a4,						% Papierformat
-twoside=true, 					% einseitiges (oneside) oder zweiseitiges (twoside) Dokument
+twoside=false, 					% einseitiges (oneside) oder zweiseitiges (twoside) Dokument
 listof=totoc, 					% Tabellen- und Abbildungsverzeichnis ins Inhaltsverzeichnis
 bibliography=totoc,				% Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
 titlepage, 						% Titlepage-Umgebung statt \maketitle
 headsepline, 					% horizontale Linie unter Kolumnentitel
 %abstracton,					% Überschrift beim Abstract einschalten, Abstract muss dazu in {abstract}-Umgebung stehen
 DIV=12,							% Satzspiegeleinstellung, 12 ist Standar bei KOMA
-%BCOR=6mm,						% Bindekorrektur, die den Seitenspiegel um 6mm nach rechts verschiebt,
+%BCOR=12mm,						% Bindekorrektur, die den Seitenspiegel um 6mm nach rechts verschiebt,
 cleardoublepage=empty,			% Stil einer leeren eingefügten Seite bei Kapitelwechsel
 parskip,							% Absatzabstand bei Absatzwechsel einfügen
 ngerman
@@ -30,6 +30,9 @@ ngerman
 %\linespread{1.2}\selectfont     % Zeilenabstand erhöhen - größere Werte als 1.2 nicht verwenden!!
 % Ende Einstellung große Arbeiten mit viel Text.
 %------
+
+\newcommand{\lowrule}{%
+	\leavevmode \kern.06em\vbox{\hrule width.5em}}
 
 \usepackage{siunitx}			% Vereinfachte Eingabe von Einheiten in Formeln
 \sisetup{
@@ -149,7 +152,7 @@ marginal
 
 \newcommand{\titel}{Titel der Praxis- / Studien- / Haus- oder Bachelor-Arbeit}
 \newcommand{\untertitel}{ggf. Untertitel mit ergänzenden Hinweisen}
-\newcommand{\arbeit}{Praxisarbeit T3\_1000 / Praxisarbeit T3\_2000 / Studienarbeit T3\_3100 / Hausarbeit T3\_3000 / Studienarbeit T3\_3200 / Bachelorarbeit T3\_3300}
+\newcommand{\arbeit}{Praxisarbeit T3\lowrule 1000 / Praxisarbeit T3\lowrule 2000 / Studienarbeit T3\lowrule 3100 / Hausarbeit T3\lowrule 3000 / Studienarbeit T3\lowrule 3200 / Bachelorarbeit T3\lowrule 3300}
 \newcommand{\studiengang}{Elektrotechnik}
 \newcommand{\studienrichtung}{Fahrzeugelektronik}
 \newcommand{\studienschwerpunkt}{}
