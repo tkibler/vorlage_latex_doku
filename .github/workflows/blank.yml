@@ -1,11 +1,11 @@
 name: Github Action for LaTeX
 
 -uses: xu-cheng/latex-action@v3
-  with:
-    root_file: main.tex
+ with:
+    root_file: WissBer_PA_SA_BA.tex
 	  latexmk_shell_escape: true
 -name: Upload PDF file
   uses: actions/upload-artifact@v3
   with:
      name: PDF
-     path: main.pdf
+     path: WissBer_PA_SA_BA.pdf
