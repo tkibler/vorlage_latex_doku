@@ -1,10 +1,17 @@
-name: Github Action for LaTeX
--uses: xu-cheng/latex-action@v3
- with:
-    root_file: WissBer_PA_SA_BA.tex
-	  latexmk_shell_escape: true
--name: Upload PDF file
-  uses: actions/upload-artifact@v3
-  with:
-     name: PDF
-     path: WissBer_PA_SA_BA.pdf
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: WissBer_PA_SA_BA.tex
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: WissBer_PA_SA_BA.pdf
