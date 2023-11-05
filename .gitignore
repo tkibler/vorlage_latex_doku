@@ -1,12 +1,17 @@
 ## Core latex/pdflatex auxiliary files:
 *.aux
+*.bak
 *.bbl
 *.bcf
 *.run.xml
 *.blg
+*.glg
+*.glo
+*.gls
 *.idx
 *.ilg
 *.ind
+*.ist
 *.lof
 *.log
 *.lot
@@ -16,6 +21,7 @@
 *.nlo
 *.nls
 *.out
+*.run.xml
 *.toc
 *.fmt
 *.fot

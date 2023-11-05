@@ -1,27 +1,40 @@
-\addchap{Anhang E}
+\addchap{E Tips und Beispiele zu \LaTeX-Befehlen}
 \setcounter{chapter}{5}
 \setcounter{section}{0}
 \setcounter{table}{0}
 \setcounter{figure}{0}
 
+Dieses Kapitel können Sie einfach löschen, indem Sie in der Präambel am Anfang der Zeile \glqq \textbackslash\textit{include\{chapter/anhang\lowrule vorlagen\}}\grqq~das Symbol \% zum Auskommentieren einfügen.
+
 \section{Wichtige \LaTeX -Befehle}
 
 \begin{tabbing}
-\hspace*{0cm} \= \hspace{0.28\linewidth} \= \+\kill
-\textbackslash \textit{label}\{\}	\> Definition eines Labels, auf welches referenziert werden kann\\ 
-	\> z.B.: \textbackslash \textit{label}\{fig:MyImage\}\\ 
+\hspace*{0cm} \= \hspace{0.42\linewidth} \= \+\kill
+\textbackslash \textit{label}\{\}	\> Definition eines Labels, auf welches referenziert \\ 
+	\> werden kann, z.~B.: \textbackslash \textit{label}\{fig:MyImage\}\\ 
 \textbackslash \textit{ref}\{\}	\> Setzen einer Referenz zu einem Label\\
+\> z.~B.: \ldots siehe Tabelle\~{}\textbackslash \textit{ref}\{tab:messdaten\}.\\ 
 \textbackslash \textit{pageref}\{\}	\> Gibt die Seitenzahl zu einer Referenz zurück\\
-	\> z.B.: Tabelle\~{}\textbackslash \textit{ref}\{tab:messdaten\} fasst die Messergebnisse zusammen.\\ 
-\textbackslash \textit{cite}\{\}	\> Literaturreferenz einfügen\\
-\textbackslash \textit{cite}[S. x]\{\}	\> Literaturreferenz mit Angabe einer Seitenzahl \glqq x\grqq~einfügen\\
 
+	\textbackslash \textit{autocite}\{\}	\> Literaturreferenz einfügen\\
+	\textbackslash \textit{autocite}[7]\{\}	\> Literaturreferenz einfügen, hier mit zus. Referenz\\
+	\> auf Seite 7\\
+\textbackslash \textit{autocites}\{Abc15, Def16\}	\> Mehrere Literaturreferenzen, hier Abc15 und \\
+\> Def16, einfügen\\
 \textbackslash \textit{footnote}\{\}	\> Fußnote einfügen\\ 
 \~{}	\> Einfügen eines geschützten Leerzeichens\\ 
 \textdollar \textit{Formel} \textdollar	\> Eingabe einer Formel im Text\\
-\textbackslash \textit{nomenclature}\{a.\}\{ab\}	\> Aufnahme der Abkürzung \glqq a.\grqq~für \glqq ab\grqq~in das Abkürzungsverzeichnis.\\
-\textbackslash \textit{index}\{Obst!Birne\} \> Aufnahme des Begriffs \glqq Birne\grqq~in den Index unter \glqq Obst\grqq. \index{Obst!Birne} \\
-\textbackslash \textit{clearpage}	\> Ausgabe aller Gleitobjekte und Umbruch auf neue Seite\\ 
+\textdollar\textit{l}=\textbackslash \textit{SI}\{10\}\{\textbackslash \textit{meter}\}\textdollar	\> Korrekte Ausgabe Maßzahl und Einheit in\\
+\> Formeln, hier $l=\SI{10}{\meter}$\\
+\textbackslash \textit{index}\{Kraft\} \> Aufnahme des Begriffs \glqq Kraft\grqq~in das Sachwort- \index{Kraft} \\
+\> verzeichnis\\
+\textbackslash \textit{index}\{Induktion!Vollständige\} \> Aufnahme des Begriffs \glqq Vollständige\grqq~in das Sach-\\
+\> wortverzeichnis unter \glqq Induktion\grqq. \index{Induktion!Vollständige} \\
+\textbackslash \textit{nomenclature}[etc]\{etc.\}\{et cetera\}	\> Aufnahme der Abkürzung \glqq etc.\grqq~für \glqq et cetera\grqq~in \\
+\> das Abkürzungsverzeichnis. Die Angabe [etc] dient\\
+\>als Sortierschlüssel\\
+\textbackslash \textit{clearpage}	\> Ausgabe aller Gleitobjekte und Umbruch auf eine\\
+\> neue Seite\\ 
 \end{tabbing}
 
 \clearpage
@@ -63,7 +76,7 @@ und durch verschachtelte Umgebungen verschiedene Aufzählungsebenen darstellen k
 
 \subsection{Bilder und Grafiken}
 
-Bilder können als PDF-, JPG-, und PNG-Bilder in \LaTeX eingebunden werden. Damit eine Grafik in hoher Qualität dargestellt wird, sollte das Dateiformat der Grafik vektorbasiert sein, d.h. als PDF-Datei vorliegen. Viele Zeichenprogramme unterstützen einen PDF-Export (z.B. GIMP, Adobe Illustrator, etc.). Für Grafiken aus PowerPoint sei folgende Vorgehensweise beim Export empfohlen:
+Bilder können als PDF-, JPG-, und PNG-Bilder in \LaTeX eingebunden werden. Damit eine Grafik in hoher Qualität dargestellt wird, sollte das Dateiformat der Grafik vektorbasiert sein, d.h. als PDF-Datei vorliegen. Viele Zeichenprogramme unterstützen einen PDF-Export (z.~B. GIMP, Adobe Illustrator, etc.). Für Grafiken aus PowerPoint sei folgende Vorgehensweise beim Export empfohlen:
 
 \begin{enumerate}
 	\item Die gewünschte Grafik in PowerPoint zeichnen.
@@ -208,7 +221,7 @@ Strommessgerät & Currentcount & Hotamp 16 & \parbox[t]{0.2\linewidth}{ \centeri
 
 \subsection{Formeln}
 
-Formeln lassen sich in \LaTeX~ganz einfach schreiben. Es gibt unterschiedliche Umgebungen zum Schreiben von Formeln. Z.B. direkt im Text $v=s/t$ oder abgesetzt
+Formeln lassen sich in \LaTeX~ganz einfach schreiben. Es gibt unterschiedliche Umgebungen zum Schreiben von Formeln. Z.~B. direkt im Text $v=s/t$ oder abgesetzt
 
 \[F=m \cdot a\]
 
@@ -239,18 +252,25 @@ Zur einfachen Eingabe von Einheiten kann auch das Package \textbackslash \textit
 	P=\SI{100}{\watt}=\SI{100}{\joule\per\second}
 \end{equation}
 
-Das sind nur ein paar wenige Beispiele und es gibt sehr viele Packages, um Besonderheiten in Formeln realisieren zu können, z.B. mehrzeilige Formeln mit vertikaler Ausrichtung. Nennen Sie Formeln nur, wenn diese zum besseren Verständnis auch wirklich nützlich sind.
+Das sind nur ein paar wenige Beispiele und es gibt sehr viele Packages, um Besonderheiten in Formeln realisieren zu können, z.~B. mehrzeilige Formeln mit vertikaler Ausrichtung. Nennen Sie Formeln nur, wenn diese zum besseren Verständnis auch wirklich nützlich sind.
 
 Folgende Befehle sind innerhalb von Formel-Umgebungen nützlich:
 \begin{tabbing}
-	\hspace*{0cm} \= \hspace{0.35\linewidth} \= \+\kill
-	\textbackslash \textit{text}\{\}	\> Damit kann in Formel-Umgebung Text geschrieben werden.\\ 
-	\textbackslash, \textbackslash: \textbackslash; oder \textbackslash quad und \textbackslash qquad \> Zusätzlichen Abstand zwischen Symbolen einfügen.\\
+	\hspace*{0cm} \= \hspace{0.28\linewidth} \= \+\kill
+	\textbackslash \textit{text}\{\} oder \textbackslash \textit{mathrm}\{\}	\> Damit kann in Formel-Umgebung Text geschrieben werden.\\ 
+	\textbackslash, \textbackslash: \textbackslash; \textbackslash quad \textbackslash qquad \> Zusätzlichen Abstand zwischen Symbolen einfügen.\\
 	\textbackslash \textit{notag} \> Nummerierung einer bestimmten Formel ausschalten.
 \end{tabbing}
 
-Abschließend nochmals ein kleines Beispiel:
+Hier noch ein kleines Beispiel aus der Mathematik:
 
-\begin{eqnarray}
+\begin{equation}
 \sum\limits_{n=1}^\infty f\left(x_n\right)\cdot \Delta x=  \lim\limits_{\Delta x \rightarrow 0} \frac{f\left(x_0+\Delta x\right)-f\left(x_0\right)}{\Delta x} = \frac{\diff f}{\diff x} = \dot{f}(x)
-\end{eqnarray}
+\end{equation}
+
+Und abschließend ein Beispiel aus der Physik zum Induktionsgesetz\index{Induktion!Elektromagnetische}:
+
+\begin{equation}
+\oint \limits _{\partial {\mathcal {\mathcal {A}}}(t)}{{\vec {E}}\cdot {\text{d}}{\vec {s}}}=-\int \limits _{{\mathcal {A}}(t)}{{\frac {\partial {\vec {B}}}{\partial t}}\cdot {\text{d}}{\vec {A}}}
+\end{equation}
+
