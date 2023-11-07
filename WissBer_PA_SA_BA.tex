@@ -2,14 +2,14 @@
 \documentclass[%
 fontsize=12pt,					% Schriftgröße
 paper=a4,						% Papierformat
-twoside=false, 					% einseitiges (oneside) oder zweiseitiges (twoside) Dokument
+twoside=false, 					% einseitiges (false) oder zweiseitiges (true) Dokument
 listof=totoc, 					% Tabellen- und Abbildungsverzeichnis ins Inhaltsverzeichnis
 bibliography=totoc,				% Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
 titlepage, 						% Titlepage-Umgebung statt \maketitle
 headsepline, 					% horizontale Linie unter Kolumnentitel
 %abstracton,					% Überschrift beim Abstract einschalten, Abstract muss dazu in {abstract}-Umgebung stehen
 DIV=12,							% Satzspiegeleinstellung, 12 ist Standar bei KOMA
-%BCOR=12mm,						% Bindekorrektur, die den Seitenspiegel um 6mm nach rechts verschiebt,
+BCOR=6mm,						% Bindekorrektur, die den Seitenspiegel um 3mm nach rechts verschiebt,
 cleardoublepage=empty,			% Stil einer leeren eingefügten Seite bei Kapitelwechsel
 parskip,							% Absatzabstand bei Absatzwechsel einfügen
 ngerman
@@ -18,12 +18,8 @@ ngerman
 \usepackage[utf8]{inputenc} 	% ermöglicht die direkte Eingabe von Umlauten
 \usepackage[T1]{fontenc} 		% Ausgabe aller zeichen in einer T1-Codierung (wichtig für die Ausgabe von Umlauten!)
 \usepackage{babel} 	% deutsche Trennungsregeln und Übersetzung der festcodierten Überschriften
-\renewcaptionname{ngerman}{\contentsname}{Inhalt}
-\renewcaptionname{ngerman}{\bibname}{Quellen}
-%\addto\captionsngerman{%
-%	\renewcommand{\contentsname}{Inhalt}}
-%\addto\captionsngerman{%
-%	\renewcommand{\refname}{Quellen}}
+\renewcaptionname{ngerman}{\contentsname}{Inhaltsverzeichnis}
+\renewcaptionname{ngerman}{\bibname}{Literaturverzeichnis}
 \setlength{\parindent}{0ex} 	% bei neuem Abschnitt nicht einrücken
 %------
 % Folgende Einstellungen entsprechen den Vorgaben der Leitlinien
@@ -161,14 +157,14 @@ marginal
 \newcommand{\studiengang}{Elektrotechnik}
 \newcommand{\studienrichtung}{Fahrzeugelektronik}
 \newcommand{\studienschwerpunkt}{}
-\newcommand{\autor}{Autor*in}
+\newcommand{\autor}{Autorin / Autor}
 \newcommand{\bearbeitungszeitraum}{01.01.2024 - 31.03.2024}
 \newcommand{\matrikelnr}{123 456}
 \newcommand{\kurs}{TFE23-2}
-\newcommand{\firma}{Firma (entfällt ggf. bei Studienarbeit)}
+\newcommand{\firma}{Name des Dualen Partners (entfällt ggf. bei Studienarbeit)}
 \newcommand{\abgabe}{\today}
-\newcommand{\betreuerfirma}{Betreuer*in der Firma (entfällt ggf. bei Studienarbeit)}
-\newcommand{\betreuerdhbw}{Gutachter*in der DHBW (nur bei Bachelorarbeit erforderlich)}
+\newcommand{\betreuerfirma}{Betreuerin / Betreuer der Arbeit}
+\newcommand{\gutachterdhbw}{Gutachterin / Gutachter der DHBW (nur bei Bachelorarbeit erforderlich)}
 
 \newcommand{\jahr}{2019}			% für Angabe im Copyright-Vermerk der Titelseite
 

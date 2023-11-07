@@ -42,9 +42,9 @@ Abgabedatum:					& \quad \abgabe \\
 Bearbeitungszeitraum:		   	& \quad \bearbeitungszeitraum   \\ 
 Matrikelnummer: 			& \quad \matrikelnr \\ 
 Kurs: 							& \quad \kurs \\
-Ausbildungsfirma:	 			& \quad \firma \\ 
-Betreuer*in der Ausbildungsfirma:  & \quad \betreuerfirma \\ 
-Gutachter*in der Dualen Hochschule: & \quad \betreuerdhbw \\ [2ex]
+Dualer Partner:	 			& \quad \firma \\ % entfällt bei Studienarbeit
+Betreuerin / Betreuer:  & \quad \betreuerfirma \\ % Betreuerin / Betreuer der Arbeit
+Gutachterin / Gutachter: & \quad \gutachterdhbw \\ [2ex] % Gutachterin / Gutachter der DHBW (nur bei der Bachelorarbeit erforderlich)
 \end{tabular}
 }
 \end{flushleft}
@@ -60,5 +60,10 @@ Gutachter*in der Dualen Hochschule: & \quad \betreuerdhbw \\ [2ex]
 %\end{flushright}
 \end{titlepage}
 
-\clearpage
+\ifthenelse{\boolean{@twoside}}{%
+	\cleardoublepage
+}{%
+	\clearpage
+}%
+
 \hypersetup{pageanchor=true}
