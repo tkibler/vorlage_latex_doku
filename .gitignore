@@ -1,4 +1,7 @@
 ## Core latex/pdflatex auxiliary files:
+*.acn
+*.acr
+*.alg
 *.aux
 *.bak
 *.bbl
@@ -7,6 +10,7 @@
 *.blg
 *.glg
 *.glo
+*.glsdefs
 *.gls
 *.idx
 *.ilg
@@ -22,6 +26,7 @@
 *.nls
 *.out
 *.run.xml
+*.synctex.gz
 *.toc
 *.fmt
 *.fot
