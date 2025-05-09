@@ -1,50 +1,22 @@
 % Alle Abkürzungen, die in der Arbeit verwendet werden. Die Alphabetische Sortierung übernimmt Latex. Nachfolgend sind Beispiele genannt, welche nach Bedarf angepasst, gelöscht oder ergänzt werden können.
-% Die Angaben in der eckigen Klammer werden zur Sortierung der Einträge verwendet. Vor allem bei Formelzeichen hat man sonst das Problem, dass diese möglicherweise nicht wie gewünscht sortiert werden.
 
-% Bei den unten stehenden Formelzeichen ist erläutert, wie explizite Sortierschlüssel über den Inhalt der eckigen Klammer angegeben werden.
-
-% Zum Aktualisieren des Abkürzungsverzeichnisses (Nomenklatur) bitte auf der Kommandozeile folgenden Befehl aufrufen :
-% makeindex <Dateiname>.nlo -s nomencl.ist -o <Dateiname>.nls
-% Oder besser: Kann in TexStudio unter Tools-Benutzer als Shortlink angelegt werden
-% Konfiguration unter: Optionen-Erzeugen-Benutzerbefehle: makeindex -s nomencl.ist -t %.nlg -o %.nls %.nlo
-
-% Allgemeine Abkürzungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\nomenclature[Abb]{Abb.}{Abbildung}
-%\nomenclature[bzw]{bzw.}{beziehungsweise}
-%\nomenclature[DHBW]{DHBW}{Duale Hochschule Baden-Württemberg}
-%\nomenclature[ebd]{ebd.}{ebenda}
-%\nomenclaturev[etal]{et al.}{at alii}
-\nomenclature[etc]{etc.}{et cetera}
-%\nomenclature[evtl]{evtl.}{eventuell}
-\nomenclature[f]{f.}{folgende Seite}
-\nomenclature[ff]{ff.}{fortfolgende Seiten}
-%\nomenclature[ggf]{ggf.}{gegebenenfalls}
-%\nomenclature[Hrsg]{Hrsg.}{Herausgeber}
-%\nomenclature[Tab]{Tab.}{Tabelle}
-%\nomenclature[ua]{u. a.}{unter anderem}
-%\nomenclature[usw]{usw.}{und so weiter}
-\nomenclature[vgl]{vgl.}{vergleiche}
-\nomenclature[zB]{z. B.}{zum Beispiel}
-%\nomenclaturev[zT]{z. T.}{zum Teil}
+% Allgemeine Abkürzungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Aus Sicht des Autors dieser Vorlage müssen allgemein bekannte Abkürzungen nich erläutert werden. Dieses Beispiel ist nur deshalb gezeigt, um die Technik zu demonstrieren, wie man mi \glsunset die Abkürzung im Text verwenden kann, aber kein Eintrag im Abkürzungsverzeichnis erfolgt.
+\newacronym{acr:zb}{z.~B.}{zum Beispiel}
 
 % Dateiendungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nomenclature[EMF]{EMF}{Enhanced Metafile}
-\nomenclature[JPG]{JPG}{Joint Photographic Experts Group}
-\nomenclature[KI]{KI}{Künstliche Intelligenz}
-\nomenclature[PDF]{PDF}{Portable Document Format}
-\nomenclature[PNG]{PNG}{Portable Network Graphics}
-%\nomenclature[]{XML}{Extensible Markup Language}
+\newacronym{acr:EMF}{EMF}{Enhanced Metafile}
+\newacronym{acr:JPG}{JPG}{Joint Photographic Experts Group}
+\newacronym{acr:KI}{KI}{Künstliche Intelligenz}
+\newacronym{acr:PDF}{PDF}{Portable Document Format}
+\newacronym{acr:PNG}{PNG}{Portable Network Graphics}
+\newacronym{acr:XML}{XML}{Extensible Markup Language}
 
 % Abkürzungen von Fachbegriffen %%%%%%%%%%%%%%%%%%%%
-\nomenclature[ABS]{ABS}{Antiblockiersystem}
-\nomenclature[ESC]{ESC}{Electronic Stability Control, Fahrdynamikregelung}
+\newacronym{acr:ABS}{ABS}{Antiblockiersystem}
+\newacronym{acr:ESC}{ESC}{Electronic Stability Control}
 
-% Formelzeichen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nomenclature[a]{$a$}{Beschleunigung}
-\nomenclature[F]{$F$}{Kraft}
-\nomenclature[m]{$m$}{Masse}
-\nomenclature[P]{$P$}{Leistung}
-\nomenclature[U]{$U$}{Spannung}
-\nomenclature[R]{$R$}{Widerstand}
+
+
 
 

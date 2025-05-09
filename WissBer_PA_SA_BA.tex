@@ -86,8 +86,7 @@ hidelinks						% Entfernen von farbigen Umrandungen der Links
 ]{hyperref}
 
 \usepackage{makeidx}			% Paket zur Erstellung eines Index
-\usepackage[toc]{glossaries}			% Paket zur Erstellung eines Glossars
-\input{pages/glossar}
+\usepackage[toc,acronym]{glossaries}			% Paket zur Erstellung eines Glossars
 \usepackage[intoc]{nomencl} 			% zur Erstellung des Abkürzungsberzeichnisses
 
 \usepackage[					% Einstellungen für Fußnoten
@@ -155,7 +154,7 @@ marginal
 \newcommand{\titel}{Titel der Projekt- / Studien- / Haus- oder Bachelorarbeit}
 \newcommand{\untertitel}{ggf. Untertitel mit ergänzenden Hinweisen}
 \newcommand{\arbeit}{Projektarbeit T3\lowrule 1000 / Projektarbeit T3\lowrule 2000 / Studienarbeit T3\lowrule 3100 / Hausarbeit T3\lowrule 3000 / Studienarbeit T3\lowrule 3200 / Bachelorarbeit T3\lowrule 3300}
-\newcommand{\studiengang}{Elektrotechnik}
+\newcommand{\studiengang}{Elektrotechnik und Informationstechnik}
 \newcommand{\studienrichtung}{Fahrzeugelektronik}
 \newcommand{\studienschwerpunkt}{}
 \newcommand{\autor}{Autorin / Autor}
@@ -233,24 +232,50 @@ marginal
 \printbibliography						% Erstellen des Literaturverzeichnisses
 \interlinepenalty 0
 \clearpage
+%\addtocounter{page}{-1}
+%\newpage
+\thispagestyle{empty}
 
 % -----Ausgabe aller Verzeichnisse ---
 \setlength{\parskip}{0.5\baselineskip}
 
+
 \input{pages/abkuerzungen}				% Datei mit allgemeinen Abkürzungen laden
-\renewcommand{\nomname}{Verzeichnis verwendeter Formelzeichen und Abkürzungen}
+%\renewcommand{\acronymname}{Abkürzungsverzeichnis}
+\printglossary[
+%nonumberlist,
+title=Abkürzungsverzeichnis,
+nopostdot,
+type=acronym]
+%\addcontentsline{toc}{chapter}{\acronymname}
+
+\input{pages/formelzeichen}				% Datei mit allgemeinen Abkürzungen laden
+\renewcommand{\nomname}{Verzeichnis der Formelzeichen}
 %\addcontentsline{toc}{chapter}{\nomname}
+%-------------
 \setlength{\nomlabelwidth}{.20\hsize}
 \renewcommand{\nomlabel}[1]{#1 \dotfill}
 \setlength{\nomitemsep}{-\parsep}
-\printnomenclature						% Erzeugen des Abkürzungsverzeichnises, siehe auch Inhalt der Datei pages/abkuerzungen.tex
+\printnomenclature						% Erzeugen des Verzeichnisses der Formelzeichen
 \clearpage
 
 \listoffigures 							% Erzeugen des Abbildungsverzeichnisses 
 \clearpage
+\thispagestyle{empty}
 
 \listoftables 							% Erzeugen des Tabellenverzeichnisses
 \clearpage
+\thispagestyle{empty}
+
+\input{pages/glossar}
+\printglossary[
+%nonumberlist,
+nopostdot,
+type=main]
+%\addcontentsline{toc}{chapter}{\glossaryname}
+
+\renewcommand{\indexname}{Sachwortverzeichnis}
+\printindex								% Erzeugen des Sachwortverzeichnisses
 
 % -----Anhang ------------------------
 
@@ -260,13 +285,5 @@ marginal
 \clearpage
 
 \include{chapter/anhang_vorlagen}		% Zeile auskommentieren bei finalem Dokument!
-
-
-\renewcommand{\glossaryname}{Glossar}
-\printglossaries
-%\addcontentsline{toc}{chapter}{\glossaryname}
-
-\renewcommand{\indexname}{Sachwortverzeichnis}
-\printindex								% Erzeugen des Sachwortverzeichnisses
 
 \end{document}
