@@ -19,7 +19,7 @@ ngerman
 \usepackage[T1]{fontenc} 		% Ausgabe aller zeichen in einer T1-Codierung (wichtig für die Ausgabe von Umlauten!)
 \usepackage{babel} 	% deutsche Trennungsregeln und Übersetzung der festcodierten Überschriften
 \renewcaptionname{ngerman}{\contentsname}{Inhaltsverzeichnis}
-\renewcaptionname{ngerman}{\bibname}{Literaturverzeichnis}
+\renewcaptionname{ngerman}{\bibname}{Quellenverzeichnis}
 \setlength{\parindent}{0ex} 	% bei neuem Abschnitt nicht einrücken
 %------
 % Folgende Einstellungen entsprechen den Vorgaben der Leitlinien
@@ -35,6 +35,25 @@ ngerman
 
 \newcommand{\lowrule}{%
 	\leavevmode \kern.06em\vbox{\hrule width.5em}}
+	
+% Hier die persönlichen Daten eingeben:
+
+\newcommand{\titel}{Titel der Projekt- / Studien- / Haus- oder Bachelorarbeit}
+\newcommand{\untertitel}{}	% ggf. Untertitel mit ergänzenden Hinweisen
+\newcommand{\arbeit}{Projektarbeit T3\lowrule 1000 / Projektarbeit T3\lowrule 2000 / Studienarbeit T3\lowrule 3100 / Hausarbeit T3\lowrule 3000 / Studienarbeit T3\lowrule 3200 / Bachelorarbeit T3\lowrule 3300}
+\newcommand{\studiengang}{Elektrotechnik und Informationstechnik}
+\newcommand{\studienrichtung}{Fahrzeugelektronik}
+\newcommand{\studienschwerpunkt}{}
+\newcommand{\autor}{Autorin / Autor}
+\newcommand{\bearbeitungszeitraum}{01.01.2024 - 31.03.2024}
+\newcommand{\matrikelnr}{1234567}
+\newcommand{\kurs}{TFE24-2}
+\newcommand{\firma}{Name des Dualen Partners (entfällt ggf. bei Studienarbeit)}
+\newcommand{\abgabe}{\today}
+\newcommand{\betreuerfirma}{Betreuerin / Betreuer der Arbeit}
+\newcommand{\gutachterdhbw}{Gutachterin / Gutachter der DHBW (nur bei Bachelorarbeit)}
+
+\newcommand{\jahr}{2019}			% für Angabe im Copyright-Vermerk der Titelseite
 
 \usepackage{siunitx}			% Vereinfachte Eingabe von Einheiten in Formeln
 \sisetup{
@@ -55,6 +74,7 @@ aboveskip=1mm
 
 \usepackage[backend=biber, %% Hilfsprogramm "biber" beim Compilieren nutzen (statt "biblatex" oder "bibtex")
 style=alphabetic, %% Zitierstil (siehe Dokumentation)
+%style=numeric,
 natbib=true, %% Bereitstellen von natbib-kompatiblen Zitierkommandos
 hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 ]{biblatex}
@@ -82,7 +102,10 @@ hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 
 \usepackage[					% Einstellunge Paket hyperref
 hyperfootnotes=false,			% im pfd-Output Fußnoten nicht verlinken
-hidelinks						% Entfernen von farbigen Umrandungen der Links
+hidelinks,						% Entfernen von farbigen Umrandungen der Links
+pdftitle={\titel},
+pdfauthor={\autor},
+pdfkeywords={DHBW, Elektrotechnik, Informationstechnik}
 ]{hyperref}
 
 \usepackage{makeidx}			% Paket zur Erstellung eines Index
@@ -149,25 +172,6 @@ marginal
 % Konfiguration unter: Optionen-Erzeugen-Benutzerbefehle: makeindex -s nomencl.ist -t %.nlg -o %.nls %.nlo
 % -----------------------------------------------------------------------------------------------------------------
 
-% Hier die persönlichen Daten eingeben:
-
-\newcommand{\titel}{Titel der Projekt- / Studien- / Haus- oder Bachelorarbeit}
-\newcommand{\untertitel}{ggf. Untertitel mit ergänzenden Hinweisen}
-\newcommand{\arbeit}{Projektarbeit T3\lowrule 1000 / Projektarbeit T3\lowrule 2000 / Studienarbeit T3\lowrule 3100 / Hausarbeit T3\lowrule 3000 / Studienarbeit T3\lowrule 3200 / Bachelorarbeit T3\lowrule 3300}
-\newcommand{\studiengang}{Elektrotechnik und Informationstechnik}
-\newcommand{\studienrichtung}{Fahrzeugelektronik}
-\newcommand{\studienschwerpunkt}{}
-\newcommand{\autor}{Autorin / Autor}
-\newcommand{\bearbeitungszeitraum}{01.01.2024 - 31.03.2024}
-\newcommand{\matrikelnr}{123 456}
-\newcommand{\kurs}{TFE23-2}
-\newcommand{\firma}{Name des Dualen Partners (entfällt ggf. bei Studienarbeit)}
-\newcommand{\abgabe}{\today}
-\newcommand{\betreuerfirma}{Betreuerin / Betreuer der Arbeit}
-\newcommand{\gutachterdhbw}{Gutachterin / Gutachter der DHBW (nur bei Bachelorarbeit)}
-
-\newcommand{\jahr}{2019}			% für Angabe im Copyright-Vermerk der Titelseite
-
 % Folgende Zeilen definieren Abkürzungen, um Befehle schneller eingeben zu können
 \newcommand{\ua}{\mbox{u.\,a.\ }}
 \newcommand{\zB}{\mbox{z.\,B.\ }}
@@ -229,7 +233,15 @@ marginal
 
 % ---- Literaturverzeichnis ----------
 \interlinepenalty 10000					% Verhindert einen Umbruch mitten in Literatureinträgen
-\printbibliography						% Erstellen des Literaturverzeichnisses
+%%%%%%%ENTWEDER%%%%%%
+%\printbibliography						% Erstellen des Literaturverzeichnisses
+%%%%%%%ODER%%%%%%%%%%
+\printbibheading
+\printbibliography[nottype=online,heading=subbibliography,
+title={Gedruckte Quellen}]	% Dazu zählen auch E-Books
+\printbibliography[type=online,heading=subbibliography,
+title={Online-Quellen}]
+%%%%%%%%%%%%%%%%%%%%
 \interlinepenalty 0
 \clearpage
 %\addtocounter{page}{-1}
