@@ -11,6 +11,7 @@
 *.blg
 *.glg
 *.glo
+*.glsdefs
 *.gls
 *.idx
 *.ilg
@@ -26,6 +27,7 @@
 *.nls
 *.out
 *.run.xml
+*.synctex.gz
 *.toc
 *.fmt
 *.fot
