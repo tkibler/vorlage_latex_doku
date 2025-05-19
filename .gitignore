@@ -2,6 +2,7 @@
 *.acn
 *.acr
 *.alg
+*.glsdefs
 *.aux
 *.bak
 *.bbl
