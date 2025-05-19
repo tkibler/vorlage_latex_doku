@@ -45,11 +45,11 @@ ngerman
 \newcommand{\studienrichtung}{Fahrzeugelektronik}
 \newcommand{\studienschwerpunkt}{}
 \newcommand{\autor}{Autorin / Autor}
-\newcommand{\bearbeitungszeitraum}{01.01.2024 - 31.03.2024}
+\newcommand{\bearbeitungszeitraum}{01.01.2025 - 31.03.2025}
 \newcommand{\matrikelnr}{1234567}
 \newcommand{\kurs}{TFE24-2}
 \newcommand{\firma}{Name des Dualen Partners (entfällt ggf. bei Studienarbeit)}
-\newcommand{\abgabe}{\today}
+\newcommand{\abgabedatum}{\today}
 \newcommand{\betreuerfirma}{Betreuerin / Betreuer der Arbeit}
 \newcommand{\gutachterdhbw}{Gutachterin / Gutachter der DHBW (nur bei Bachelorarbeit)}
 
@@ -190,10 +190,6 @@ marginal
 
 \hyphenation{Schrift-ar-ten}
 
-\BeforeClosingMainAux{% siehe KOMA-Script-Anleitung
-\addcontentsline{toc}{chapter}{\indexname}\stepcounter{page}
-}
-
 \makeindex						% Indexverzeichnis erstellen
 \makenomenclature				% Abkürzungsverzeichnis erstellen
 \makeglossaries
@@ -238,9 +234,9 @@ marginal
 %%%%%%%ODER%%%%%%%%%%
 \printbibheading
 \printbibliography[nottype=online,heading=subbibliography,
-title={Gedruckte Quellen}]	% Dazu zählen auch E-Books
+title={Gedruckte Quellen}]	% Alle Quellen, die nocht ovm Typ @online{}sind. Dazu zählen auch E-Books
 \printbibliography[type=online,heading=subbibliography,
-title={Online-Quellen}]
+title={Online-Quellen}] % Alle Quellen vom Typ @online{}
 %%%%%%%%%%%%%%%%%%%%
 \interlinepenalty 0
 \clearpage
@@ -286,9 +282,6 @@ nopostdot,
 type=main]
 %\addcontentsline{toc}{chapter}{\glossaryname}
 
-\renewcommand{\indexname}{Sachwortverzeichnis}
-\printindex								% Erzeugen des Sachwortverzeichnisses
-
 % -----Anhang ------------------------
 
 \appendix
@@ -297,5 +290,13 @@ type=main]
 \clearpage
 
 \include{chapter/anhang_vorlagen}		% Zeile auskommentieren bei finalem Dokument!
+
+% ------Sachwortverzeichnis------------
+
+\renewcommand{\indexname}{Sachwortverzeichnis}
+\addcontentsline{toc}{chapter}{\indexname}
+\printindex								% Erzeugen des Sachwortverzeichnisses
+\clearpage
+\thispagestyle{empty}
 
 \end{document}

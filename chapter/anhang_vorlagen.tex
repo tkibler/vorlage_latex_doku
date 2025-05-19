@@ -13,8 +13,8 @@ Dieses Kapitel können Sie einfach löschen, indem Sie in der Präambel am Anfan
 \textbackslash \textit{label}\{\}	\> Definition eines Labels, auf welches referenziert \\ 
 	\> werden kann, z.~B.: \textbackslash \textit{label}\{fig:MyImage\}\\ 
 \textbackslash \textit{ref}\{\}	\> Setzen einer Referenz zu einem Label\\
-\> z.~B.: \ldots siehe Tabelle\~{}\textbackslash \textit{ref}\{tab:messdaten\}.\\ 
-\textbackslash \textit{pageref}\{\}	\> Gibt die Seitenzahl zu einer Referenz zurück\\
+\> z.~B.: \ldots siehe Tabelle\~{}\textbackslash \textit{ref}\{tab:messdaten\}\\ 
+\textbackslash \textit{pageref}\{\}	\> Gibt die Seitenzahl zu einer Referenz zurück.\\
 
 	\textbackslash \textit{autocite}\{\}	\> Literaturreferenz einfügen\\
 	\textbackslash \textit{autocite}[7]\{\}	\> Literaturreferenz einfügen, hier mit zus. Referenz\\
@@ -30,9 +30,12 @@ Dieses Kapitel können Sie einfach löschen, indem Sie in der Präambel am Anfan
 \> verzeichnis\\
 \textbackslash \textit{index}\{Induktion!Vollständige\} \> Aufnahme des Begriffs \glqq Vollständige\grqq~in das Sach-\\
 \> wortverzeichnis unter \glqq Induktion\grqq. \index{Induktion!Vollständige} \\
-\textbackslash \textit{nomenclature}[etc]\{etc.\}\{et cetera\}	\> Aufnahme der Abkürzung \glqq etc.\grqq~für \glqq et cetera\grqq~in \\
-\> das Abkürzungsverzeichnis. Die Angabe [etc] dient\\
-\>als Sortierschlüssel\\
+\textbackslash \textit{nomenclature}[F]\{$F$\}\{Kraft\}	\> Aufnahme des Formelzeichens $F$ für die Kraft in \\
+\> das Verzeichnis der Formelzeichen. Die Option [F]\\
+\>dient als Sortierschlüssel\\
+\textbackslash \textit{acrshort}\{\textit{label}\} \> Einbindung der zum angegebenen Label definierten\\ \>  Abkürzung im Abkürzungsverzeichnis. Die Definition \\ \> hierzu muss mit dem Befehl \textbackslash \textit{newacronym} erfolgen.\\
+\textbackslash \textit{acrlong}\{\textit{label}\} \> Einbindung des zum angegebenen Label definierten\\ \>  Langtextes der Abkürzung.\\
+\textbackslash \textit{glsentryshort}\{\textit{label}\} \> Einbindung der zum angegebenen Label definierten\\ \>  Abkürzung. Die Abkürzung wird aber nicht im \\ \> Abkürzungsverzeichnis aufgenommen.\\
 \textbackslash \textit{clearpage}	\> Ausgabe aller Gleitobjekte und Umbruch auf eine\\
 \> neue Seite\\ 
 \end{tabbing}
@@ -84,18 +87,18 @@ Abkürzungs- und Formelverzeichnisse können entweder separat, oder auch als ein
 
 Ein \gls{gls:glossar} dient dazu, Begriffe zu erläutern und ist vor allem dann empfohlen, wenn in der Dokumentation zahlreiche unbekannte Begriffe verwendet werden. 
 
-Als Alternative zum Glossar können auch \glspl{gls:Fußnote} verwendet werden. Diese Technik sollte aber nur an wenigen Stellen der Dokumentation eingesetzt werden. Sobald die Anzahl an erläuterungsbedürftigen Begriffen über ca. fünf bis zehn ansteigt, sollte ein Glossar verwendet werden.
+Als Alternative zum Glossar können auch \glspl{gls:Fußnote}\footnote{Fußnote mit zusätzlichen Informationen, Anmerkungen oder Erläuterungen.} verwendet werden. Diese Technik sollte aber nur an wenigen Stellen der Dokumentation eingesetzt werden. Sobald die Anzahl an erläuterungsbedürftigen Begriffen über ca. fünf bis zehn ansteigt, sollte ein Glossar verwendet werden.
 
 \subsection{Bilder und Grafiken}
 
-Bilder können als \acrshort{acr:PDF}-, JPG-, und PNG-Bilder in \LaTeX eingebunden werden. Damit eine Grafik in hoher Qualität dargestellt wird, sollte das Dateiformat der Grafik vektorbasiert sein, d.h. als PDF-Datei vorliegen. Viele Zeichenprogramme unterstützen einen PDF-Export (z.~B. GIMP, Adobe Illustrator, etc.). Für Grafiken aus PowerPoint sei folgende Vorgehensweise beim Export empfohlen:
+Bilder können als \acrshort{acr:PDF}-, \acrshort{acr:JPG}-, und \acrshort{acr:PNG}-Bilder in \LaTeX eingebunden werden. Damit eine Grafik in hoher Qualität dargestellt wird, sollte das Dateiformat der Grafik vektorbasiert sein, d.h. als \acrshort{acr:PDF}-Datei vorliegen. Viele Zeichenprogramme unterstützen einen \acrshort{acr:PDF}-Export (\glsentryshort{acr:zb} GIMP, Adobe Illustrator, etc.). Für Grafiken aus PowerPoint sei folgende Vorgehensweise beim Export empfohlen:
 
 \begin{enumerate}
 	\item Die gewünschte Grafik in PowerPoint zeichnen.
 	\item Gewünschten Bildbereich markieren, rechte Maustaste klicken und \glqq Als Grafik speichern ...\grqq~wählen.
-	\item Grafik im Format EMF abspeichern. Das EMF-Format ist vektorbasiert.\footnote{Mit dem Mac kann in PowerPoint die Grafik direkt im PDF-Format exportiert werden. Die weiteren Schritte entfallen daher.}
-	\item Mit dem Programm XnView die Grafik im EMF-Format in PDF wandeln und abspeichern.
-	\item Die so erzeugte PDF-Datei enthält eine vektorbasierte Grafik und kann in \LaTeX~ eingebunden werden.
+	\item Grafik im Format \acrshort{acr:EMF} abspeichern. Das \acrshort{acr:EMF}-Format ist vektorbasiert.\footnote{Mit dem Mac kann in PowerPoint die Grafik direkt im PDF-Format exportiert werden. Die weiteren Schritte entfallen daher.}
+	\item Mit dem Programm XnView die Grafik im \acrshort{acr:EMF}-Format in \acrshort{acr:PDF} wandeln und abspeichern.
+	\item Die so erzeugte \acrshort{acr:PDF}-Datei enthält eine vektorbasierte Grafik und kann in \LaTeX~ eingebunden werden.
 \end{enumerate}
 
 Abbildung~\ref{fig:MyImage} zeigt ein Beispielbild einer Grafik, welche aus PowerPoint exportiert wurde.
@@ -270,7 +273,7 @@ Das sind nur ein paar wenige Beispiele und es gibt sehr viele Packages, um Beson
 
 Folgende Befehle sind innerhalb von Formel-Umgebungen nützlich:
 \begin{tabbing}
-	\hspace*{0cm} \= \hspace{0.28\linewidth} \= \+\kill
+	\hspace*{0cm} \= \hspace{0.3\linewidth} \= \+\kill
 	\textbackslash \textit{text}\{\} oder \textbackslash \textit{mathrm}\{\}	\> Damit kann in Formel-Umgebung Text geschrieben werden.\\ 
 	\textbackslash, \textbackslash: \textbackslash; \textbackslash quad \textbackslash qquad \> Zusätzlichen Abstand zwischen Symbolen einfügen.\\
 	\textbackslash \textit{notag} \> Nummerierung einer bestimmten Formel ausschalten.
