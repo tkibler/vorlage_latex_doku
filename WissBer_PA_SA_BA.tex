@@ -73,8 +73,7 @@ aboveskip=1mm
 ]{caption}
 
 \usepackage[backend=biber, %% Hilfsprogramm "biber" beim Compilieren nutzen (statt "biblatex" oder "bibtex")
-style=alphabetic, %% Zitierstil (siehe Dokumentation)
-%style=numeric,
+style=numeric, %% Zitierstil (siehe Dokumentation) style=numeric oder style=alphabetic
 natbib=true, %% Bereitstellen von natbib-kompatiblen Zitierkommandos
 hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 ]{biblatex}
@@ -110,7 +109,10 @@ pdfkeywords={DHBW, Elektrotechnik, Informationstechnik}
 
 \usepackage{makeidx}			% Paket zur Erstellung eines Index
 \usepackage[toc,acronym]{glossaries}			% Paket zur Erstellung eines Glossars
-\usepackage[intoc]{nomencl} 			% zur Erstellung des Abkürzungsberzeichnisses
+\input{pages/abkuerzungen}				% Datei mit Abkürzungsdefinitionen laden
+\input{pages/glossar}					% Datei mit Glossareinträgen laden
+
+\usepackage[intoc]{nomencl} 			% zur Erstellung des Verzeichnisses verwendeter Formelzeichen
 
 \usepackage[					% Einstellungen für Fußnoten
 bottom,							% Ausrichtung unten
@@ -248,7 +250,6 @@ title={Online-Quellen}] % Alle Quellen vom Typ @online{}
 \setlength{\parskip}{0.5\baselineskip}
 
 
-\input{pages/abkuerzungen}				% Datei mit allgemeinen Abkürzungen laden
 %\renewcommand{\acronymname}{Abkürzungsverzeichnis}
 \printglossary[
 %nonumberlist,
@@ -257,7 +258,7 @@ nopostdot,
 type=acronym]
 %\addcontentsline{toc}{chapter}{\acronymname}
 
-\input{pages/formelzeichen}				% Datei mit allgemeinen Abkürzungen laden
+\input{pages/formelzeichen}				% Datei mit Einträgen für das Verzeichnis verwendeter Formelzeichen laden.
 \renewcommand{\nomname}{Verzeichnis der Formelzeichen}
 %\addcontentsline{toc}{chapter}{\nomname}
 %-------------
@@ -275,7 +276,6 @@ type=acronym]
 \clearpage
 \thispagestyle{empty}
 
-\input{pages/glossar}
 \printglossary[
 %nonumberlist,
 nopostdot,
