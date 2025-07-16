@@ -8,12 +8,13 @@ bibliography=totoc,				% Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
 titlepage, 						% Titlepage-Umgebung statt \maketitle
 headsepline, 					% horizontale Linie unter Kolumnentitel
 %abstracton,					% Überschrift beim Abstract einschalten, Abstract muss dazu in {abstract}-Umgebung stehen
-DIV=12,							% Satzspiegeleinstellung, 12 ist Standar bei KOMA
-BCOR=6mm,						% Bindekorrektur, die den Seitenspiegel um 3mm nach rechts verschiebt,
+DIV=18,							% Satzspiegeleinstellung, 12 ist Standar bei KOMA
+BCOR=12mm,						% Bindekorrektur, die den Seitenspiegel um 3mm nach rechts verschiebt,
 cleardoublepage=empty,			% Stil einer leeren eingefügten Seite bei Kapitelwechsel
 parskip,							% Absatzabstand bei Absatzwechsel einfügen
 ngerman
-]{scrbook}			
+]{scrbook}		
+%\usepackage[left=2.25cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}			% Für manuelle Einstellung der Seitenränder; DIV und BOR sind dann obsolet
 \usepackage[setspace=false]{scrhack}
 \usepackage[utf8]{inputenc} 	% ermöglicht die direkte Eingabe von Umlauten
 \usepackage[T1]{fontenc} 		% Ausgabe aller zeichen in einer T1-Codierung (wichtig für die Ausgabe von Umlauten!)
@@ -40,7 +41,7 @@ ngerman
 
 \newcommand{\titel}{Titel der Projekt- / Studien- / Haus- oder Bachelorarbeit}
 \newcommand{\untertitel}{}	% ggf. Untertitel mit ergänzenden Hinweisen
-\newcommand{\arbeit}{Projektarbeit T3\lowrule 1000 / Projektarbeit T3\lowrule 2000 / Studienarbeit T3\lowrule 3100 / Hausarbeit T3\lowrule 3000 / Studienarbeit T3\lowrule 3200 / Bachelorarbeit T3\lowrule 3300}
+\newcommand{\arbeit}{Projektarbeit T4\lowrule 1000 / Projektarbeit T4\lowrule 2000 / Studienarbeit T4\lowrule 3100 / Hausarbeit T4\lowrule 3000 / Studienarbeit T4\lowrule 3200 / Bachelorarbeit T4\lowrule 3300}
 \newcommand{\studiengang}{Elektrotechnik und Informationstechnik}
 \newcommand{\studienrichtung}{Fahrzeugelektronik}
 \newcommand{\studienschwerpunkt}{}
@@ -98,21 +99,6 @@ hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 \usepackage{amsmath}			% Ergänzungen für Formeln
 \usepackage{textcomp} 			% zum Einsatz von Eurozeichen u. a. Symbolen
 \usepackage{eurosym}			% bessere Darstellung Euro-Symbol mit \euro
-
-\usepackage[					% Einstellunge Paket hyperref
-hyperfootnotes=false,			% im pfd-Output Fußnoten nicht verlinken
-hidelinks,						% Entfernen von farbigen Umrandungen der Links
-pdftitle={\titel},
-pdfauthor={\autor},
-pdfkeywords={DHBW, Elektrotechnik, Informationstechnik}
-]{hyperref}
-
-\usepackage{makeidx}			% Paket zur Erstellung eines Index
-\usepackage[toc,acronym]{glossaries}			% Paket zur Erstellung eines Glossars
-\input{pages/abkuerzungen}				% Datei mit Abkürzungsdefinitionen laden
-\input{pages/glossar}					% Datei mit Glossareinträgen laden
-
-\usepackage[intoc]{nomencl} 			% zur Erstellung des Verzeichnisses verwendeter Formelzeichen
 
 \usepackage[					% Einstellungen für Fußnoten
 bottom,							% Ausrichtung unten
@@ -192,9 +178,26 @@ marginal
 
 \hyphenation{Schrift-ar-ten}
 
-\makeindex						% Indexverzeichnis erstellen
-\makenomenclature				% Abkürzungsverzeichnis erstellen
+%\usepackage{makeidx}			% Paket zur Erstellung eines Index
+\usepackage{imakeidx}			% Neueres Paket zur Erstellung eines Index
+\makeindex[title=Sachwortverzeichnis, intoc]						% Indexverzeichnis erstellen
+
+\usepackage[					% Einstellunge Paket 
+hyperfootnotes=false,			% im pfd-Output Fußnoten nicht verlinken
+hidelinks,						% Entfernen von farbigen Umrandungen der Links
+pdftitle={\titel},
+pdfauthor={\autor},
+pdfkeywords={DHBW, Elektrotechnik, Informationstechnik}
+]{hyperref}
+
+\usepackage[toc,acronym]{glossaries}	% Paket zur Erstellung eines Glossars
+\input{pages/glossar}					% Datei mit Glossareinträgen laden
 \makeglossaries
+
+\usepackage[intoc]{nomencl} 			% zur Erstellung des Verzeichnisses verwendeter Formelzeichen
+\input{pages/abkuerzungen}				% Datei mit Abkürzungsdefinitionen laden
+\makenomenclature				% Abkürzungsverzeichnis erstellen
+
 
 % -------------------------------------------------------------------------------------------
 %                     Beginn des Dokumenteninhalts
@@ -214,7 +217,7 @@ marginal
 
 \tableofcontents						% Erzeugen des Inhalsverzeichnisses
 
-\clearpage
+\cleardoubleoddpage
 
 % --------------------------------------------------------------------------------------------
 %                    Inhalt der Bachelorarbeit
@@ -241,10 +244,9 @@ title={Gedruckte Quellen}]	% Alle Quellen, die nocht ovm Typ @online{}sind. Dazu
 title={Online-Quellen}] % Alle Quellen vom Typ @online{}
 %%%%%%%%%%%%%%%%%%%%
 \interlinepenalty 0
-\clearpage
+\cleardoubleoddpage
 %\addtocounter{page}{-1}
 %\newpage
-\thispagestyle{empty}
 
 % -----Ausgabe aller Verzeichnisse ---
 \setlength{\parskip}{0.5\baselineskip}
@@ -257,6 +259,7 @@ title=Abkürzungsverzeichnis,
 nopostdot,
 type=acronym]
 %\addcontentsline{toc}{chapter}{\acronymname}
+\cleardoubleoddpage
 
 \input{pages/formelzeichen}				% Datei mit Einträgen für das Verzeichnis verwendeter Formelzeichen laden.
 \renewcommand{\nomname}{Verzeichnis der Formelzeichen}
@@ -266,37 +269,35 @@ type=acronym]
 \renewcommand{\nomlabel}[1]{#1 \dotfill}
 \setlength{\nomitemsep}{-\parsep}
 \printnomenclature						% Erzeugen des Verzeichnisses der Formelzeichen
-\clearpage
+\cleardoubleoddpage
 
 \listoffigures 							% Erzeugen des Abbildungsverzeichnisses 
-\clearpage
-\thispagestyle{empty}
+\cleardoubleoddpage
 
 \listoftables 							% Erzeugen des Tabellenverzeichnisses
-\clearpage
-\thispagestyle{empty}
+\cleardoubleoddpage
 
 \printglossary[
 %nonumberlist,
 nopostdot,
 type=main]
 %\addcontentsline{toc}{chapter}{\glossaryname}
+\cleardoubleoddpage
 
 % -----Anhang ------------------------
 
 \appendix
 %\pagenumbering{Roman}					% große, römische Seitenzahlen für Anhang, falls gewünscht
 \include{chapter/anhang}
-\clearpage
-
-\include{chapter/anhang_vorlagen}		% Zeile auskommentieren bei finalem Dokument!
+\cleardoublepage
+%
+%\include{chapter/anhang_vorlagen}		% Zeile auskommentieren bei finalem Dokument!
 
 % ------Sachwortverzeichnis------------
 
-\renewcommand{\indexname}{Sachwortverzeichnis}
-\addcontentsline{toc}{chapter}{\indexname}
+%\renewcommand{\indexname}{Sachwortverzeichnis}
+%\addcontentsline{toc}{chapter}{\indexname}
 \printindex								% Erzeugen des Sachwortverzeichnisses
-\clearpage
-\thispagestyle{empty}
+\cleardoubleoddpage
 
 \end{document}
