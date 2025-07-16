@@ -2,7 +2,7 @@
 \documentclass[%
 fontsize=12pt,					% Schriftgröße
 paper=a4,						% Papierformat
-twoside=false, 					% einseitiges (false) oder zweiseitiges (true) Dokument
+twoside=true, 					% einseitiges (false) oder zweiseitiges (true) Dokument
 listof=totoc, 					% Tabellen- und Abbildungsverzeichnis ins Inhaltsverzeichnis
 bibliography=totoc,				% Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
 titlepage, 						% Titlepage-Umgebung statt \maketitle
@@ -217,7 +217,11 @@ pdfkeywords={DHBW, Elektrotechnik, Informationstechnik}
 
 \tableofcontents						% Erzeugen des Inhalsverzeichnisses
 
-\cleardoubleoddpage
+\ifthenelse{\boolean{@twoside}}{%
+	\cleardoubleoddpage
+}{%
+	\clearpage
+}%
 
 % --------------------------------------------------------------------------------------------
 %                    Inhalt der Bachelorarbeit
@@ -244,13 +248,17 @@ title={Gedruckte Quellen}]	% Alle Quellen, die nocht ovm Typ @online{}sind. Dazu
 title={Online-Quellen}] % Alle Quellen vom Typ @online{}
 %%%%%%%%%%%%%%%%%%%%
 \interlinepenalty 0
-\cleardoubleoddpage
+
+%\ifthenelse{\boolean{@twoside}}{%
+%	\cleardoubleoddpage
+%}{%
+%	%something false
+%}%
+
 %\addtocounter{page}{-1}
-%\newpage
 
 % -----Ausgabe aller Verzeichnisse ---
 \setlength{\parskip}{0.5\baselineskip}
-
 
 %\renewcommand{\acronymname}{Abkürzungsverzeichnis}
 \printglossary[
@@ -259,7 +267,11 @@ title=Abkürzungsverzeichnis,
 nopostdot,
 type=acronym]
 %\addcontentsline{toc}{chapter}{\acronymname}
-\cleardoubleoddpage
+\ifthenelse{\boolean{@twoside}}{%
+	\cleardoubleoddpage
+}{%
+	%something false
+}%
 
 \input{pages/formelzeichen}				% Datei mit Einträgen für das Verzeichnis verwendeter Formelzeichen laden.
 \renewcommand{\nomname}{Verzeichnis der Formelzeichen}
@@ -269,35 +281,62 @@ type=acronym]
 \renewcommand{\nomlabel}[1]{#1 \dotfill}
 \setlength{\nomitemsep}{-\parsep}
 \printnomenclature						% Erzeugen des Verzeichnisses der Formelzeichen
-\cleardoubleoddpage
-
+\ifthenelse{\boolean{@twoside}}{%
+	\cleardoubleoddpage
+}{%
+	%something false
+}%
 \listoffigures 							% Erzeugen des Abbildungsverzeichnisses 
-\cleardoubleoddpage
+%\ifthenelse{\boolean{@twoside}}{%
+%	\cleardoubleoddpage
+%}{%
+%	%something false
+%}%
 
 \listoftables 							% Erzeugen des Tabellenverzeichnisses
-\cleardoubleoddpage
+%\ifthenelse{\boolean{@twoside}}{%
+%	\cleardoubleoddpage
+%}{%
+%	%something false
+%}%
 
 \printglossary[
 %nonumberlist,
 nopostdot,
 type=main]
 %\addcontentsline{toc}{chapter}{\glossaryname}
-\cleardoubleoddpage
+\ifthenelse{\boolean{@twoside}}{%
+	\cleardoubleoddpage
+}{%
+	%something false
+}%
 
 % -----Anhang ------------------------
 
 \appendix
 %\pagenumbering{Roman}					% große, römische Seitenzahlen für Anhang, falls gewünscht
 \include{chapter/anhang}
-\cleardoublepage
+\ifthenelse{\boolean{@twoside}}{%
+	\cleardoubleoddpage
+}{%
+	%something false
+}%
 %
-%\include{chapter/anhang_vorlagen}		% Zeile auskommentieren bei finalem Dokument!
-
+\include{chapter/anhang_vorlagen}		% Zeile auskommentieren bei finalem Dokument!
+\ifthenelse{\boolean{@twoside}}{%
+	\cleardoubleoddpage
+}{%
+	%something false
+}%
 % ------Sachwortverzeichnis------------
 
 %\renewcommand{\indexname}{Sachwortverzeichnis}
 %\addcontentsline{toc}{chapter}{\indexname}
 \printindex								% Erzeugen des Sachwortverzeichnisses
-\cleardoubleoddpage
+%\ifthenelse{\boolean{@twoside}}{%
+%	\cleardoubleoddpage
+%}{%
+%	%something false
+%}%
 
 \end{document}

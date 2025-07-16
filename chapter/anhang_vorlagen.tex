@@ -40,8 +40,6 @@ Dieses Kapitel können Sie einfach löschen, indem Sie in der Präambel am Anfan
 \> neue Seite\\ 
 \end{tabbing}
 
-\clearpage
-
 \section{Vorlagen für \LaTeX Umgebungen}
 
 \subsection{Listen und Aufzählungen}
@@ -67,15 +65,12 @@ und durch verschachtelte Umgebungen verschiedene Aufzählungsebenen darstellen k
 
 \begin{enumerate}[label=\alph*)]
 	\item Erster Aufzählungspunkt der ersten Ebene
-	\item ...
-	\begin{itemize}
+		\begin{itemize}
 		\item Erster Punkt der zweiten Ebene
 		\item Zweiter Punkt der zweiten Ebene
 	\end{itemize}
 	\item Das sollte an Beispielen zunächst einmal genügen.
 \end{enumerate}
-
-\clearpage
 
 \subsection{Abkürzungsverzeichnis, Formelverzeichnis und Glossar}
 
@@ -112,8 +107,7 @@ Abbildung~\ref{fig:MyImage} zeigt ein Beispielbild einer Grafik, welche aus Powe
 
 Der Quellcode des Beispielbildes aus Abbildung~\ref{fig:MyImage} ist in Listing~\ref{lst:fig} zu sehen.
 
-\clearpage
-
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption=Quellcode der Abbildung~\ref{fig:MyImage}.,label=lst:fig]
 \begin{figure}[hbt]				% here, bottom, top
 \centering						% Zentrierung
@@ -122,6 +116,7 @@ Der Quellcode des Beispielbildes aus Abbildung~\ref{fig:MyImage} ist in Listing~
 \label{fig:MyImage}
 \end{figure}
 \end{lstlisting}
+\end{minipage}
 
 Jedes Bild aus fremder Quelle ist mit einem Zitat in der Abbildungsunterschrift zu kennzeichnen. Nur eigene Bilder benötigen keine entsprechende Kennzeichnung. Bilder aus fremder Quelle mit eigenen Ergänzungen oder Änderungen sind mit Zitat und einer entsprechenden Bemerkung (z. B. \glqq auf Basis [Quelle] mit eigenen Ergänzungen\grqq~oder \glqq eigene Darstellung auf Basis [Quelle]\grqq) zu versehen. Der besseren Lesbarkeit halber sind im Abbildungsverzeichnis keine Zitate anzugeben. Hierfür kann im Befehl \textbackslash \textit{caption[]\{\}} innerhalb der eckigen Klammer eine modifizierte Abbildungsunterschrift eingegeben werden, welche in das Abbildungsverzeichnis übernommen wird. Der Text innerhalb der geschweiften Klammer wird direkt unter die Abbildung gedruckt und kann dagegen ausführlich mit Angabe eines Zitats sein. Sollte die Arbeit veröffentlicht werden, ist unbedingt darauf zu achten, dass nur dann Bilder von fremder Quelle übernommen werden dürfen, wenn hierfür das explizite Einverständnis des Urhebers vorliegt. Dieses Einverständnis ist persönlich einzuholen und separat zu dokumentieren.
 
@@ -154,10 +149,9 @@ In der Tikz-Umgebung können auch Diagramme mit dem \textit{pgfplot}-Befehlssatz
 	\label{fig:pgfplot}
 \end{figure}
 
-\clearpage
-
 Auch hierzu der Quellcode in Listing~\ref{lst:pgfplot}.
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption=Quellcode der Abbildung~\ref{fig:pgfplot}.,label=lst:pgfplot]
 \begin{figure}[hbt]
 \centering
@@ -166,9 +160,11 @@ Auch hierzu der Quellcode in Listing~\ref{lst:pgfplot}.
 \label{fig:pgfplot}
 \end{figure}
 \end{lstlisting}
+\end{minipage}
 
 In Listing~\ref{lst:tikz} ist der Quellcode der Datei \textit{mess\_fehlerbalken.tex} dargestellt.
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption=Quellcode der Datei \textit{mess\_fehlerbalken.tex}.,label=lst:tikz]
 \begin{tikzpicture}
 \begin{axis}[scale=1.3,legend entries={Messwerte mit Fehlerbalken,
@@ -184,10 +180,11 @@ table[x=x,y=y,y error=errory]
 \end{axis}
 \end{tikzpicture}
 \end{lstlisting}
+\end{minipage}
 
 \clearpage
 
-In Abbildung~\ref{fig:pgfplot2y} wird ein weiters Beispiel für ein Diagramm gezeigt. Oftmals wird eine zweite y-Achse verwendet, um verschiedene Skalen darstellen zu können.
+In Abbildung~\ref{fig:pgfplot2y} wird ein weiteres Beispiel für ein Diagramm gezeigt. Oftmals wird eine zweite y-Achse verwendet, um verschiedene Skalen darstellen zu können.
 
 \begin{figure}[hbt]
 	\centering
@@ -217,6 +214,7 @@ In Abbildung~\ref{fig:pgfplot2y} wird ein weiters Beispiel für ein Diagramm gez
 
 Der Quellcode der Beispieltabelle~\ref{tab:bsp} ist in Listing~\ref{lst:tab} zu sehen.
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption=Quellcode der Tabelle~\ref{tab:bsp}.,label=lst:tab]
 \begin{table}[hbt]	
 \centering
@@ -233,6 +231,7 @@ Strommessgerät & Currentcount & Hotamp 16 & \parbox[t]{0.2\linewidth}{ \centeri
 \end{tabular} 
 \end{table}
 \end{lstlisting}
+\end{minipage}
 
 \clearpage
 
