@@ -74,9 +74,11 @@ aboveskip=1mm
 ]{caption}
 
 \usepackage[backend=biber, %% Hilfsprogramm "biber" beim Compilieren nutzen (statt "biblatex" oder "bibtex")
-style=numeric, %% Zitierstil (siehe Dokumentation) style=numeric oder style=alphabetic
+style=numeric, %% Zitierstil (siehe Dokumentation) style=numeric oder style=alphabetic oder authortitle oder authoryear
+%verbose-inote,
 natbib=true, %% Bereitstellen von natbib-kompatiblen Zitierkommandos
 hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
+%autocite=footnote, %% Zitate als Fußnote einbinden; Alternativen: plain, inline, footnote, superscript
 ]{biblatex}
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000}
@@ -190,7 +192,11 @@ pdfauthor={\autor},
 pdfkeywords={DHBW, Elektrotechnik, Informationstechnik}
 ]{hyperref}
 
-\usepackage[toc,acronym]{glossaries}	% Paket zur Erstellung eines Glossars
+\usepackage[
+toc,
+acronym,
+%nomain									% Wenn kein Glossar verwendet wird, muss die Option nomain  verwendet werden, anosnten wird kein Abkürzungsverzeichnis erstellt.
+]{glossaries}							% Paket zur Erstellung eines Glossars
 \input{pages/glossar}					% Datei mit Glossareinträgen laden
 \makeglossaries
 
@@ -261,6 +267,7 @@ title={Online-Quellen}] % Alle Quellen vom Typ @online{}
 \setlength{\parskip}{0.5\baselineskip}
 
 %\renewcommand{\acronymname}{Abkürzungsverzeichnis}
+%Achtung: Wenn kein Glossar verwendet wird, erscheint das Abkürzungverzeichnis nur, wenn beim Laden des Pkets glossaries die Option "nomain" verwendet wird.
 \printglossary[
 %nonumberlist,
 title=Abkürzungsverzeichnis,
