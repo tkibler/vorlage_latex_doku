@@ -1,5 +1,7 @@
 name: Build LaTeX document
 on: [push]
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   build_latex:
     runs-on: ubuntu-latest
